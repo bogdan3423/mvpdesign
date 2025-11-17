@@ -37,7 +37,7 @@ export default function ProductsPage() {
       </section>
 
       {/* Filters and Search */}
-      <section className="bg-white border-b border-gray-200 sticky top-[73px] z-40 shadow-sm">
+      <section className="bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
             {/* Search Bar */}
