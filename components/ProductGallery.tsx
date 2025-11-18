@@ -81,15 +81,6 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4">
-                  <span className="text-sm font-semibold uppercase tracking-wide text-gray-500">
-                    Preț orientativ
-                  </span>
-                  <span className="text-3xl font-extrabold text-orange-500">
-                    {selectedProduct.price.toFixed(2)} lei
-                  </span>
-                </div>
-
                 <div className="space-y-3 text-sm text-gray-600">
                   <div>
                     <span className="font-semibold text-gray-800">Categorie: </span>

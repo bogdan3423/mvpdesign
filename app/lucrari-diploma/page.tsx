@@ -164,9 +164,6 @@ export default function LucrariDiplomaPage() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                      {product.price.toFixed(2)} Lei
-                    </div>
                   </div>
                   <div className="p-6">
                     <div className="mb-2">

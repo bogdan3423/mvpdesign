@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { categories } from '@/data/products';
+import { categories, getFirstProductBySubcategorySlug } from '@/data/products';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -82,16 +82,19 @@ export default function Header() {
                         </h3>
                       </Link>
                       <ul className="space-y-1">
-                        {categories[0].subcategories.map((subcategory) => (
-                          <li key={subcategory.slug}>
-                            <Link
-                              href={`/produse/${subcategory.categorySlug}`}
-                              className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
-                            >
-                              {subcategory.name}
-                            </Link>
-                          </li>
-                        ))}
+                        {categories[0].subcategories.map((subcategory) => {
+                          const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                          return (
+                            <li key={subcategory.slug}>
+                              <Link
+                                href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                                className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
+                              >
+                                {subcategory.name}
+                              </Link>
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
 
@@ -105,16 +108,19 @@ export default function Header() {
                           </h3>
                         </Link>
                         <ul className="space-y-1">
-                          {categories[1].subcategories.map((subcategory) => (
-                            <li key={subcategory.slug}>
-                              <Link
-                                href={`/produse/${subcategory.categorySlug}`}
-                                className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
-                              >
-                                {subcategory.name}
-                              </Link>
-                            </li>
-                          ))}
+                          {categories[1].subcategories.map((subcategory) => {
+                            const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                            return (
+                              <li key={subcategory.slug}>
+                                <Link
+                                  href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                                  className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
+                                >
+                                  {subcategory.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
 
@@ -126,16 +132,19 @@ export default function Header() {
                           </h3>
                         </Link>
                         <ul className="space-y-1">
-                          {categories[2].subcategories.map((subcategory) => (
-                            <li key={subcategory.slug}>
-                              <Link
-                                href={`/produse/${subcategory.categorySlug}`}
-                                className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
-                              >
-                                {subcategory.name}
-                              </Link>
-                            </li>
-                          ))}
+                          {categories[2].subcategories.map((subcategory) => {
+                            const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                            return (
+                              <li key={subcategory.slug}>
+                                <Link
+                                  href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                                  className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
+                                >
+                                  {subcategory.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
 
@@ -147,16 +156,19 @@ export default function Header() {
                           </h3>
                         </Link>
                         <ul className="space-y-1">
-                          {categories[3].subcategories.map((subcategory) => (
-                            <li key={subcategory.slug}>
-                              <Link
-                                href={`/produse/${subcategory.categorySlug}`}
-                                className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
-                              >
-                                {subcategory.name}
-                              </Link>
-                            </li>
-                          ))}
+                          {categories[3].subcategories.map((subcategory) => {
+                            const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                            return (
+                              <li key={subcategory.slug}>
+                                <Link
+                                  href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                                  className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
+                                >
+                                  {subcategory.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     </div>
@@ -171,16 +183,19 @@ export default function Header() {
                           </h3>
                         </Link>
                         <ul className="space-y-1">
-                          {categories[4].subcategories.map((subcategory) => (
-                            <li key={subcategory.slug}>
-                              <Link
-                                href={`/produse/${subcategory.categorySlug}`}
-                                className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
-                              >
-                                {subcategory.name}
-                              </Link>
-                            </li>
-                          ))}
+                          {categories[4].subcategories.map((subcategory) => {
+                            const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                            return (
+                              <li key={subcategory.slug}>
+                                <Link
+                                  href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                                  className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
+                                >
+                                  {subcategory.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
 
@@ -192,16 +207,19 @@ export default function Header() {
                           </h3>
                         </Link>
                         <ul className="space-y-1">
-                          {categories[5].subcategories.map((subcategory) => (
-                            <li key={subcategory.slug}>
-                              <Link
-                                href={`/produse/${subcategory.categorySlug}`}
-                                className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
-                              >
-                                {subcategory.name}
-                              </Link>
-                            </li>
-                          ))}
+                          {categories[5].subcategories.map((subcategory) => {
+                            const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                            return (
+                              <li key={subcategory.slug}>
+                                <Link
+                                  href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                                  className="text-[12px] text-gray-600 hover:text-orange-500 transition-colors block leading-relaxed"
+                                >
+                                  {subcategory.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     </div>
@@ -282,16 +300,19 @@ export default function Header() {
                       {category.name}
                     </div>
                   </Link>
-                  {category.subcategories.map((subcategory) => (
-                    <Link
-                      key={subcategory.slug}
-                      href={`/produse/${subcategory.categorySlug}`}
-                      className="block text-sm text-gray-600 hover:text-orange-500 pl-2 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {subcategory.name}
-                    </Link>
-                  ))}
+                  {category.subcategories.map((subcategory) => {
+                    const product = getFirstProductBySubcategorySlug(subcategory.slug);
+                    return (
+                      <Link
+                        key={subcategory.slug}
+                        href={product ? `/produse/produs/${product.id}` : `/produse/${subcategory.categorySlug}`}
+                        className="block text-sm text-gray-600 hover:text-orange-500 pl-2 py-1"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {subcategory.name}
+                      </Link>
+                    );
+                  })}
                 </div>
               ))}
             </div>

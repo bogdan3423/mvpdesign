@@ -55,13 +55,6 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* Price */}
-        <div className="mb-4">
-          <div className="text-2xl font-bold text-orange-500">
-            {product.price.toFixed(2)} lei
-          </div>
-        </div>
-
         {/* Order Buttons */}
         <div className="mt-auto space-y-2">
           <a
@@ -75,7 +68,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             Comandă Telefonic
           </a>
           <a
-            href={`mailto:orders@mvpdesign.ro?subject=Comandă: ${encodeURIComponent(product.name)}&body=Aș dori să comand:%0D%0A%0D%0AProdus: ${encodeURIComponent(product.name)}%0D%0ACategorie: ${encodeURIComponent(product.subcategory)}%0D%0APreț: ${product.price.toFixed(2)} lei%0D%0A%0D%0AVă rog să mă contactați pentru detalii despre cantitate și livrare.%0D%0A%0D%0AMulțumesc!`}
+            href={`mailto:orders@mvpdesign.ro?subject=Comandă: ${encodeURIComponent(product.name)}&body=Aș dori să comand:%0D%0A%0D%0AProdus: ${encodeURIComponent(product.name)}%0D%0ACategorie: ${encodeURIComponent(product.subcategory)}%0D%0A%0D%0AVă rog să mă contactați pentru detalii despre cantitate și livrare.%0D%0A%0D%0AMulțumesc!`}
             className="flex items-center justify-center w-full border-2 border-orange-500 text-orange-500 px-4 py-2.5 rounded-lg hover:bg-orange-50 transition-colors font-medium text-sm"
             onClick={(event) => onClick && event.stopPropagation()}
           >
