@@ -11,7 +11,21 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-orange-600 to-orange-500">
+      <section className="relative overflow-hidden bg-orange-500">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/imageupdate.png"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        
+        {/* Gradient overlay for text contrast - top-to-bottom on mobile, left-to-right on desktop */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 via-60% to-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/40 md:to-transparent z-[1]"></div>
+        
         <div className="container mx-auto px-4 py-16 md:py-20 relative z-10">
           <div className="max-w-3xl">
             {/* Main Heading */}
@@ -20,9 +34,9 @@ export default function Home() {
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-              Papetărie de calitate premium, rechizite pentru birou și materiale artistice profesionale. 
-              Comandă telefonic sau prin email.
+            <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed" style={{ fontSize: 'larger' }}>
+              <b>Papetărie de calitate premium, rechizite pentru birou și materiale artistice profesionale. 
+              Comandă telefonic sau prin email.</b>
             </p>
 
             {/* CTA Buttons */}
@@ -31,26 +45,16 @@ export default function Home() {
                 href="/products"
                 className="bg-white text-orange-600 px-8 py-3 rounded-lg hover:bg-orange-50 transition-colors font-bold text-center shadow-lg"
               >
-                Vezi Produsele
+                <b>Vezi Produsele</b>
               </Link>
               <Link
                 href="/contact"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-orange-600 transition-colors font-bold text-center"
+                className="bg-white text-orange-600 px-8 py-3 rounded-lg hover:bg-orange-50 transition-colors font-bold text-center shadow-lg"
               >
-                Contactează-ne
+                <b>Contactează-ne</b>
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Modern wave divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="w-full h-16 md:h-24">
-            <path
-              d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
-              className="fill-gray-50"
-            />
-          </svg>
         </div>
       </section>
 
