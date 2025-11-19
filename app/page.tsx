@@ -51,7 +51,7 @@ export default function Home() {
                 href="/contact"
                 className="bg-white text-orange-600 px-8 py-3 rounded-lg hover:bg-orange-50 transition-colors font-bold text-center shadow-lg"
               >
-                <b>Contactează-ne</b>
+                <b>Contactează-ne acum!</b>
               </Link>
             </div>
           </div>
