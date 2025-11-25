@@ -4,12 +4,18 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-16">
-        <div className="container mx-auto px-4">
+      <section 
+        className="relative overflow-hidden text-white py-16 bg-cover bg-center"
+        style={{ backgroundImage: 'url(/backgroundimage.jpeg)' }}
+      >
+        {/* Gradient overlay for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 via-60% to-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/40 md:to-transparent z-[1]"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Contactează-ne
           </h1>
-          <p className="text-xl text-orange-100 max-w-2xl">
+          <p className="text-xl text-white/90 max-w-2xl">
             Intră în legătură cu echipa noastră. Suntem aici să te ajutăm să găsești produsele perfecte pentru nevoile tale.
           </p>
         </div>
