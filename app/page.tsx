@@ -11,14 +11,14 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-orange-500">
+      <section className="relative overflow-hidden bg-orange-500 h-[70vh] md:h-[80vh]">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/backgroundimage.jpeg"
             alt="Hero Background"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             priority
           />
         </div>
