@@ -224,15 +224,6 @@ export const products: Product[] = [
     slug: "carti-de-vizita",
     image: "https://images.unsplash.com/photo-1628891439478-c613e85af7d6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3MlMjBjYXJkfGVufDB8fDB8fHww",
   },
-  {
-    id: 13,
-    name: "Cărți de Vizită Premium - 100 buc",
-    description: "Cărți de vizită pe carton premium 350g cu finisaj special și colțuri rotunjite.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Cărți de vizită",
-    slug: "carti-de-vizita",
-    image: "https://images.unsplash.com/photo-1623305465231-d884ce752d59?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
 
   // Diplome
   {

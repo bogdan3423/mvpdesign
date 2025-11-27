@@ -49,18 +49,18 @@ export default async function ProductDetailsPage({ params }: ProductPageParams) 
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="bg-gradient-to-r from-orange-500 to-orange-600 text-white py-12">
+      <section className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
           <Link 
             href={category ? `/produse/${category.slug}` : '/produse'}
-            className="inline-flex items-center gap-2 text-white hover:text-orange-100 transition-colors mb-4 font-medium group"
+            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors mb-4 font-medium group"
           >
             <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Înapoi la {category ? category.name : 'Produse'}
           </Link>
-          <div className="flex items-center space-x-2 text-sm text-orange-100 mb-4">
+          <div className="flex items-center space-x-2 text-sm text-gray-300 mb-4">
             <Link href="/" className="hover:text-white transition-colors">
               Acasă
             </Link>
@@ -89,7 +89,7 @@ export default async function ProductDetailsPage({ params }: ProductPageParams) 
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">{product.name}</h1>
-          <p className="text-xl text-orange-100 max-w-3xl">{product.description}</p>
+          <p className="text-xl text-gray-300 max-w-3xl">{product.description}</p>
         </div>
       </section>
 

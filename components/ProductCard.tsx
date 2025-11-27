@@ -1,5 +1,6 @@
 import type { KeyboardEvent } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Product } from '@/data/products';
 
 interface ProductCardProps {
@@ -23,7 +24,7 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
     }
   };
 
-  return (
+  const content = (
     <div
       className={`bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 group h-full flex flex-col ${onClick ? 'cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2' : ''}`}
       role={onClick ? 'button' : undefined}
@@ -82,4 +83,15 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
       </div>
     </div>
   );
+
+  // If onClick is not provided, wrap with Link to product detail page
+  if (!onClick) {
+    return (
+      <Link href={`/produse/produs/${product.id}`} className="block h-full">
+        {content}
+      </Link>
+    );
+  }
+
+  return content;
 }
