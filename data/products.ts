@@ -31,7 +31,6 @@ export const categories: Category[] = [
       { name: "A4 / SRA4", slug: "a4-sra4", categorySlug: "printuri-clasice-xerox" },
       { name: "A3 / SRA3", slug: "a3-sra3", categorySlug: "printuri-clasice-xerox" },
       { name: "Autocolante", slug: "autocolante", categorySlug: "printuri-clasice-xerox" },
-      { name: "Autocolante de perete", slug: "autocolante-de-perete", categorySlug: "printuri-clasice-xerox" },
       { name: "Afișe / Postere", slug: "afise-postere", categorySlug: "printuri-clasice-xerox" },
       { name: "Broșuri / Cataloage / Reviste", slug: "brosuri-cataloage-reviste", categorySlug: "printuri-clasice-xerox" },
       { name: "Cărți de vizită", slug: "carti-de-vizita", categorySlug: "printuri-clasice-xerox" },
@@ -163,15 +162,6 @@ export const products: Product[] = [
     subcategory: "Autocolante",
     slug: "autocolante",
     image: "https://images.unsplash.com/photo-1500576992153-0271099def59?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RpY2tlcnxlbnwwfHwwfHx8MA%3D%3D",
-  },
-  {
-    id: 7,
-    name: "Autocolante Vitrine",
-    description: "Autocolante pentru vitrine și geamuri, materiale de calitate pentru exterior.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Autocolante",
-    slug: "autocolante",
-    image: "https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 
   // Afișe / Postere
