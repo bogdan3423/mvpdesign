@@ -68,6 +68,8 @@ export default async function CategoryPage({ params }: CategoryPageParams) {
               fill
               className="object-cover"
               priority
+              sizes="100vw"
+              quality={75}
             />
           </div>
           
@@ -189,6 +191,8 @@ export default async function CategoryPage({ params }: CategoryPageParams) {
             fill
             className="object-cover"
             priority
+            sizes="100vw"
+            quality={75}
           />
         </div>
         

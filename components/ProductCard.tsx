@@ -60,7 +60,7 @@ export default function ProductCard({ product, onClick, priority = false }: Prod
             priority={priority}
             placeholder="blur"
             blurDataURL={shimmerBase64}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+            sizes="(max-width: 640px) 320px, (max-width: 1024px) 280px, (max-width: 1280px) 300px, 320px"
             loading={priority ? 'eager' : 'lazy'}
           />
         ) : (

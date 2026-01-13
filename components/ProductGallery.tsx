@@ -37,9 +37,9 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
     setPreloadedProductIds(prev => new Set([...prev, product.id]));
   }, [preloadedProductIds, preloadImage]);
 
-  // Preload first 8 products' images immediately on mount
+  // Preload first 4 products' images immediately on mount
   useEffect(() => {
-    products.slice(0, 8).forEach(product => {
+    products.slice(0, 4).forEach(product => {
       product.images.forEach(src => preloadImage(src));
     });
   }, [products, preloadImage]);
@@ -68,7 +68,7 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
             <ProductCard
               product={product}
               onClick={() => setSelectedProduct(product)}
-              priority={index < 8}
+              priority={index < 4}
             />
           </div>
         ))}
@@ -102,7 +102,7 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
                     alt={selectedProduct.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 512px"
                     priority
                     loading="eager"
                     placeholder="blur"

@@ -45,6 +45,7 @@ export default function Header() {
             height={28}
             className="h-5 w-auto"
             priority
+            sizes="70px"
           />
         </Link>          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">

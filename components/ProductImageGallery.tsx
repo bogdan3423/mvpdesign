@@ -60,7 +60,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           alt={productName}
           fill
           className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 600px, 512px"
           priority
           placeholder="blur"
           blurDataURL={shimmerBase64}
@@ -101,9 +101,9 @@ export default function ProductImageGallery({ images, productName }: ProductImag
                 alt={`${productName} - imagine ${index + 1}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 600px, 512px"
                 priority={index === 0}
-                loading={index === 0 ? 'eager' : 'eager'}
+                loading={index === 0 ? 'eager' : 'lazy'}
                 placeholder="blur"
                 blurDataURL={shimmerBase64}
               />
@@ -149,7 +149,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
               fill
               className="object-cover"
               sizes="80px"
-              loading="eager"
+              loading="lazy"
               placeholder="blur"
               blurDataURL={shimmerBase64}
             />
