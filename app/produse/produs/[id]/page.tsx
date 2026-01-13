@@ -30,6 +30,17 @@ export async function generateMetadata({ params }: ProductPageParams) {
   return {
     title: `${product.name} | MVP DESIGN`,
     description: product.description,
+    openGraph: {
+      images: product.images.length > 0 ? [product.images[0]] : [],
+    },
+    // Preload all product images for instant loading
+    other: {
+      'link': product.images.map((img, i) => 
+        i === 0 
+          ? `<${img}>; rel="preload"; as="image"; fetchpriority="high"`
+          : `<${img}>; rel="preload"; as="image"`
+      ).join(', '),
+    },
   };
 }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface ProductImageGalleryProps {
@@ -8,8 +8,34 @@ interface ProductImageGalleryProps {
   productName: string;
 }
 
+// Shimmer placeholder for instant visual feedback
+const shimmerBase64 = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg==';
+
 export default function ProductImageGallery({ images, productName }: ProductImageGalleryProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]));
+  const [allImagesPreloaded, setAllImagesPreloaded] = useState(false);
+
+  // Preload ALL images when component mounts for instant switching
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const preloadPromises = images.map((src, index) => {
+      return new Promise<void>((resolve) => {
+        const img = new window.Image();
+        img.onload = () => {
+          setLoadedImages(prev => new Set([...prev, index]));
+          resolve();
+        };
+        img.onerror = () => resolve();
+        img.src = src;
+      });
+    });
+
+    Promise.all(preloadPromises).then(() => {
+      setAllImagesPreloaded(true);
+    });
+  }, [images]);
 
   // Handle empty images array
   if (images.length === 0) {
@@ -24,9 +50,6 @@ export default function ProductImageGallery({ images, productName }: ProductImag
       </div>
     );
   }
-
-  // Shimmer placeholder for instant visual feedback
-  const shimmerBase64 = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg==';
 
   // Single image - simple display
   if (images.length === 1) {
@@ -47,6 +70,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
   }
 
   // Multiple images - gallery with thumbnails
+  // Render ALL images but only show the selected one (for instant switching)
   return (
     <div className="space-y-4">
       {/* Main Image Container with Navigation */}
@@ -63,21 +87,31 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           </svg>
         </button>
 
-        {/* Main Image */}
+        {/* Main Image - Render ALL images, show only selected */}
         <div className="relative h-80 md:h-[420px] bg-white rounded-xl shadow-lg overflow-hidden mx-6 md:mx-14">
-          <Image
-            src={images[selectedImageIndex]}
-            alt={`${productName} - imagine ${selectedImageIndex + 1}`}
-            fill
-            className="object-cover transition-opacity duration-300"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            priority
-            placeholder="blur"
-            blurDataURL={shimmerBase64}
-          />
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-200 ${
+                selectedImageIndex === index ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            >
+              <Image
+                src={image}
+                alt={`${productName} - imagine ${index + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                priority={index === 0}
+                loading={index === 0 ? 'eager' : 'eager'}
+                placeholder="blur"
+                blurDataURL={shimmerBase64}
+              />
+            </div>
+          ))}
           
           {/* Image counter */}
-          <div className="absolute bottom-3 right-3 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">
+          <div className="absolute bottom-3 right-3 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium z-20">
             {selectedImageIndex + 1} / {images.length}
           </div>
         </div>
@@ -115,6 +149,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
               fill
               className="object-cover"
               sizes="80px"
+              loading="eager"
               placeholder="blur"
               blurDataURL={shimmerBase64}
             />
