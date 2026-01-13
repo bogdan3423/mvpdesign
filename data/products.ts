@@ -411,7 +411,7 @@ export const products: Product[] = [
     category: "Textile & Produse personalizate",
     subcategory: "Produse personalizate",
     slug: "produse-personalizate",
-    images: ["/Poze-produse/cana.png","/Poze-produse/cana-2.png","/Poze-produse/punga.png","/Poze-produse/pix-personalizat-MVP-Design.png"],
+    images: ["/Poze-produse/personalizate.jpeg","/Poze-produse/cana.png","/Poze-produse/cana-2.png","/Poze-produse/punga.png","/Poze-produse/pix-personalizat-MVP-Design.png"],
   },
 
   // Tricouri personalizate
