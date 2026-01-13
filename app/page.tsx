@@ -30,7 +30,7 @@ export default function Home() {
           <div className="max-w-3xl">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white">
-              Tot ce ai nevoie pentru Birou și Creativitate
+              Tot ce ai nevoie pentru Birou și Creativitate!
             </h1>
 
             {/* Description */}
