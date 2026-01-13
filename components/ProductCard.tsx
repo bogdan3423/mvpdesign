@@ -3,12 +3,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/data/products';
 
+// Shimmer placeholder for instant visual feedback
+const shimmerBase64 = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImciPjxzdG9wIHN0b3AtY29sb3I9IiNmM2Y0ZjYiIG9mZnNldD0iMCUiLz48c3RvcCBzdG9wLWNvbG9yPSIjZTVlN2ViIiBvZmZzZXQ9IjUwJSIvPjxzdG9wIHN0b3AtY29sb3I9IiNmM2Y0ZjYiIG9mZnNldD0iMTAwJSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZjNmNGY2Ii8+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9InVybCgjZykiLz48L3N2Zz4=';
+
 interface ProductCardProps {
   product: Product;
   onClick?: (product: Product) => void;
+  priority?: boolean;
 }
 
-export default function ProductCard({ product, onClick }: ProductCardProps) {
+export default function ProductCard({ product, onClick, priority = false }: ProductCardProps) {
   const handleCardClick = () => {
     if (onClick) {
       onClick(product);
@@ -53,6 +57,11 @@ export default function ProductCard({ product, onClick }: ProductCardProps) {
             alt={product.name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
+            priority={priority}
+            placeholder="blur"
+            blurDataURL={shimmerBase64}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+            loading={priority ? 'eager' : 'lazy'}
           />
         ) : (
           <div className="flex items-center justify-center h-full text-gray-400">

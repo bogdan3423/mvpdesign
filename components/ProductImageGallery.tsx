@@ -25,6 +25,9 @@ export default function ProductImageGallery({ images, productName }: ProductImag
     );
   }
 
+  // Shimmer placeholder for instant visual feedback
+  const shimmerBase64 = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg==';
+
   // Single image - simple display
   if (images.length === 1) {
     return (
@@ -35,6 +38,9 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           fill
           className="object-cover"
           sizes="(max-width: 1024px) 100vw, 50vw"
+          priority
+          placeholder="blur"
+          blurDataURL={shimmerBase64}
         />
       </div>
     );
@@ -65,6 +71,9 @@ export default function ProductImageGallery({ images, productName }: ProductImag
             fill
             className="object-cover transition-opacity duration-300"
             sizes="(max-width: 1024px) 100vw, 50vw"
+            priority
+            placeholder="blur"
+            blurDataURL={shimmerBase64}
           />
           
           {/* Image counter */}
@@ -106,6 +115,8 @@ export default function ProductImageGallery({ images, productName }: ProductImag
               fill
               className="object-cover"
               sizes="80px"
+              placeholder="blur"
+              blurDataURL={shimmerBase64}
             />
           </button>
         ))}

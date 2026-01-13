@@ -21,6 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload critical images for instant loading */}
+        <link rel="preload" as="image" href="/Poze-produse/A4-SRA4.png" type="image/png" />
+        <link rel="preload" as="image" href="/Poze-produse/A3-SRA3.png" type="image/png" />
+        <link rel="preload" as="image" href="/Poze-produse/sticker1.png" type="image/png" />
+        <link rel="preload" as="image" href="/Poze-produse/Afis-2.png" type="image/png" />
+        <link rel="preload" as="image" href="/Poze-produse/brosura-cu-mai-multe-file-MVP-Design.png" type="image/png" />
+        <link rel="preload" as="image" href="/Poze-produse/carte-de-vizita.png" type="image/png" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
         <main className="min-h-screen">{children}</main>
