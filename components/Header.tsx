@@ -35,18 +35,18 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4">
         {/* Top bar */}
-        <div className="flex items-center justify-between py-4 border-b border-gray-200">
+        <div className="flex items-center justify-between py-2 border-b border-gray-200">
           {/* Logo */}
-        <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="MVP DESIGN Logo"
-            width={70}
-            height={28}
-            className="h-5 w-auto"
-            priority
-          />
-        </Link>          {/* Desktop Navigation */}
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="MVP DESIGN Logo"
+              width={120}
+              height={40}
+              style={{ height: '64px', width: 'auto' }}
+              priority
+            />
+          </Link>          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             <Link href="/" className="text-gray-700 hover:text-orange-500 font-medium transition-colors">
               Acasă
