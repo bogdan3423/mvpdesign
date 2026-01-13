@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
+import ProductImageGallery from '@/components/ProductImageGallery';
 import {
   getProductById,
   getAllProductIds,
@@ -49,62 +49,105 @@ export default async function ProductDetailsPage({ params }: ProductPageParams) 
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <section className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12">
+      {/* Product Header Section */}
+      <section className="bg-gradient-to-br from-gray-800 via-gray-900 to-gray-800 text-white py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <Link 
-            href={category ? `/produse/${category.slug}` : '/produse'}
-            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors mb-4 font-medium group"
-          >
-            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Înapoi la {category ? category.name : 'Produse'}
-          </Link>
-          <div className="flex items-center space-x-2 text-sm text-gray-300 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">
-              Acasă
+          {/* Navigation Row - Back Button & Breadcrumb */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
+            {/* Back Button */}
+            <Link 
+              href={category ? `/produse/${category.slug}` : '/produse'}
+              className="inline-flex items-center gap-2 text-white/90 hover:text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg transition-all duration-200 font-medium group w-fit"
+            >
+              <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="text-sm">Înapoi la {category ? category.name : 'Produse'}</span>
             </Link>
-            <span>/</span>
-            <Link href="/produse" className="hover:text-white transition-colors">
-              Produse
-            </Link>
-            {category && (
-              <>
-                <span>/</span>
-                <Link href={`/produse/${category.slug}`} className="hover:text-white transition-colors">
-                  {category.name}
-                </Link>
-              </>
-            )}
-            {subcategory && (
-              <>
-                <span>/</span>
-                <Link href={`/produse/${subcategory.slug}`} className="hover:text-white transition-colors">
-                  {subcategory.name}
-                </Link>
-              </>
-            )}
-            <span>/</span>
-            <span className="text-white font-medium">{product.name}</span>
+            
+            {/* Breadcrumb - Desktop */}
+            <nav className="hidden md:flex items-center text-sm" aria-label="Breadcrumb">
+              <ol className="flex items-center flex-wrap gap-1">
+                <li className="flex items-center">
+                  <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                    Acasă
+                  </Link>
+                  <svg className="w-4 h-4 mx-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </li>
+                <li className="flex items-center">
+                  <Link href="/produse" className="text-gray-400 hover:text-white transition-colors">
+                    Produse
+                  </Link>
+                  <svg className="w-4 h-4 mx-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </li>
+                {category && (
+                  <li className="flex items-center">
+                    <Link href={`/produse/${category.slug}`} className="text-gray-400 hover:text-white transition-colors">
+                      {category.name}
+                    </Link>
+                    <svg className="w-4 h-4 mx-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </li>
+                )}
+                {subcategory && (
+                  <li className="flex items-center">
+                    <Link href={`/produse/${subcategory.slug}`} className="text-gray-400 hover:text-white transition-colors max-w-[150px] truncate">
+                      {subcategory.name}
+                    </Link>
+                    <svg className="w-4 h-4 mx-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </li>
+                )}
+                <li>
+                  <span className="text-white font-medium max-w-[200px] truncate block">{product.name}</span>
+                </li>
+              </ol>
+            </nav>
           </div>
+          
+          {/* Breadcrumb - Mobile (Simplified) */}
+          <nav className="md:hidden mb-5" aria-label="Breadcrumb">
+            <ol className="flex items-center text-xs text-gray-400 overflow-x-auto pb-2 gap-1 scrollbar-thin">
+              <li className="flex items-center shrink-0">
+                <Link href="/" className="hover:text-white transition-colors">Acasă</Link>
+                <span className="mx-1.5 text-gray-600">/</span>
+              </li>
+              <li className="flex items-center shrink-0">
+                <Link href="/produse" className="hover:text-white transition-colors">Produse</Link>
+                {(category || subcategory) && <span className="mx-1.5 text-gray-600">/</span>}
+              </li>
+              {category && (
+                <li className="flex items-center shrink-0">
+                  <Link href={`/produse/${category.slug}`} className="hover:text-white transition-colors">{category.name}</Link>
+                  {subcategory && <span className="mx-1.5 text-gray-600">/</span>}
+                </li>
+              )}
+              {subcategory && (
+                <li className="flex items-center shrink-0">
+                  <Link href={`/produse/${subcategory.slug}`} className="hover:text-white transition-colors truncate max-w-[120px]">{subcategory.name}</Link>
+                </li>
+              )}
+            </ol>
+          </nav>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{product.name}</h1>
-          <p className="text-xl text-gray-300 max-w-3xl">{product.description}</p>
+          {/* Product Title & Description */}
+          <div className="border-t border-white/10 pt-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 leading-tight">{product.name}</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl leading-relaxed">{product.description}</p>
+          </div>
         </div>
       </section>
 
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div className="relative h-80 md:h-[420px] bg-white rounded-xl shadow-lg overflow-hidden">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            <ProductImageGallery images={product.images} productName={product.name} />
 
             <div className="bg-white rounded-xl shadow-lg p-8 space-y-6">
               <div>

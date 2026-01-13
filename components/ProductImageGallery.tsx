@@ -1,0 +1,115 @@
+'use client';
+
+import { useState } from 'react';
+import Image from 'next/image';
+
+interface ProductImageGalleryProps {
+  images: string[];
+  productName: string;
+}
+
+export default function ProductImageGallery({ images, productName }: ProductImageGalleryProps) {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  // Handle empty images array
+  if (images.length === 0) {
+    return (
+      <div className="relative h-80 md:h-[420px] bg-white rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
+        <div className="text-gray-400 text-center">
+          <svg className="w-24 h-24 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <p className="text-lg font-medium">Imagine indisponibilă</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Single image - simple display
+  if (images.length === 1) {
+    return (
+      <div className="relative h-80 md:h-[420px] bg-white rounded-xl shadow-lg overflow-hidden">
+        <Image
+          src={images[0]}
+          alt={productName}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </div>
+    );
+  }
+
+  // Multiple images - gallery with thumbnails
+  return (
+    <div className="space-y-4">
+      {/* Main Image Container with Navigation */}
+      <div className="relative">
+        {/* Navigation Button - Previous */}
+        <button
+          type="button"
+          onClick={() => setSelectedImageIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))}
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 md:translate-x-0 md:left-2 bg-white hover:bg-orange-50 text-gray-800 hover:text-orange-600 rounded-full p-2 md:p-3 shadow-lg border border-gray-200 transition-all hover:scale-110 z-20"
+          aria-label="Imaginea anterioară"
+        >
+          <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        {/* Main Image */}
+        <div className="relative h-80 md:h-[420px] bg-white rounded-xl shadow-lg overflow-hidden mx-6 md:mx-14">
+          <Image
+            src={images[selectedImageIndex]}
+            alt={`${productName} - imagine ${selectedImageIndex + 1}`}
+            fill
+            className="object-cover transition-opacity duration-300"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+          
+          {/* Image counter */}
+          <div className="absolute bottom-3 right-3 bg-black/60 text-white px-3 py-1 rounded-full text-sm font-medium">
+            {selectedImageIndex + 1} / {images.length}
+          </div>
+        </div>
+
+        {/* Navigation Button - Next */}
+        <button
+          type="button"
+          onClick={() => setSelectedImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1))}
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 md:translate-x-0 md:right-2 bg-white hover:bg-orange-50 text-gray-800 hover:text-orange-600 rounded-full p-2 md:p-3 shadow-lg border border-gray-200 transition-all hover:scale-110 z-20"
+          aria-label="Imaginea următoare"
+        >
+          <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Thumbnail strip */}
+      <div className="flex gap-2 overflow-x-auto pb-2 justify-center px-2">
+        {images.map((image, index) => (
+          <button
+            key={index}
+            type="button"
+            onClick={() => setSelectedImageIndex(index)}
+            className={`relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden transition-all border-2 ${
+              selectedImageIndex === index
+                ? 'border-orange-500 ring-2 ring-orange-500 ring-offset-2'
+                : 'border-transparent opacity-70 hover:opacity-100 hover:border-gray-300'
+            }`}
+            aria-label={`Selectează imaginea ${index + 1}`}
+          >
+            <Image
+              src={image}
+              alt={`${productName} - miniatura ${index + 1}`}
+              fill
+              className="object-cover"
+              sizes="80px"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}

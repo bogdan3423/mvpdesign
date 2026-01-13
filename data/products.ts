@@ -8,7 +8,7 @@ export interface Product {
   category: string;
   subcategory: string;
   slug: string;
-  image: string;
+  images: string[];
 }
 
 export interface Category {
@@ -53,6 +53,7 @@ export const categories: Category[] = [
     slug: "lucrari-academice-profesionale",
     subcategories: [
       { name: "Lucrări de diplomă", slug: "lucrari-de-diploma", categorySlug: "lucrari-academice-profesionale" },
+      { name: "Lucrări de licență", slug: "lucrari-de-licenta", categorySlug: "lucrari-academice-profesionale" },
       { name: "Planșe inginerie / arhitectură + Pliere", slug: "planse-inginerie-arhitectura", categorySlug: "lucrari-academice-profesionale" },
       { name: "Rețetare medicale / Formulare", slug: "retetare-medicale-formulare", categorySlug: "lucrari-academice-profesionale" },
     ]
@@ -69,12 +70,14 @@ export const categories: Category[] = [
     ]
   },
   {
-    name: "Textile & Produse promoționale",
+    name: "Textile & Produse personalizate",
     slug: "textile-produse-promotionale",
     subcategories: [
-      { name: "Produse personalizate (Pixuri, Tote bags, etc.)", slug: "produse-personalizate", categorySlug: "textile-produse-promotionale" },
-      { name: "Textile personalizate", slug: "textile-personalizate", categorySlug: "textile-produse-promotionale" },
+      { name: "Produse personalizate", slug: "produse-personalizate", categorySlug: "textile-produse-promotionale" },
       { name: "Tricouri personalizate", slug: "tricouri-personalizate", categorySlug: "textile-produse-promotionale" },
+      { name: "Hanorace personalizate", slug: "hanorace-personalizate", categorySlug: "textile-produse-promotionale" },
+      { name: "Tote bag / Geanta din panza", slug: "tote-bag-geanta-panza", categorySlug: "textile-produse-promotionale" },
+      { name: "Cana personalizata", slug: "cana-personalizata", categorySlug: "textile-produse-promotionale" },
     ]
   },
   {
@@ -96,8 +99,7 @@ export const categories: Category[] = [
     slug: "publicitate-expunere",
     subcategories: [
       { name: "Bannere / Mesh-uri", slug: "bannere-mesh-uri", categorySlug: "publicitate-expunere" },
-      { name: "Roll-up", slug: "roll-up", categorySlug: "publicitate-expunere" },
-      { name: "Pop-up (standuri expoziționale)", slug: "pop-up-standuri-expozitionale", categorySlug: "publicitate-expunere" },
+      { name: "Roll-up / Pop-up", slug: "roll-up-pop-up", categorySlug: "publicitate-expunere" },
       { name: "Steaguri", slug: "steaguri", categorySlug: "publicitate-expunere" },
     ]
   },
@@ -107,559 +109,474 @@ export const products: Product[] = [
   // Printuri clasice / Xerox - A4 / SRA4
   {
     id: 1,
-    name: "Printare A4 Color",
-    description: "Printare profesională color pe format A4, calitate superioară pentru documente, prezentări și materiale promoționale.",
+    name: "A4 / SRA4",
+    description: "Printare profesională alb-negru sau color pe hârtie simplă, premium sau texturată, 80–350g.",
     category: "Printuri clasice / Xerox",
     subcategory: "A4 / SRA4",
     slug: "a4-sra4",
-    image: "https://images.unsplash.com/photo-1630734277837-ebe62757b6e0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1480",
-  },
-  {
-    id: 2,
-    name: "Printare A4 Alb-Negru",
-    description: "Printare economică alb-negru pe format A4, perfectă pentru documente, rapoarte și materiale de birou.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "A4 / SRA4",
-    slug: "a4-sra4",
-    image: "https://images.unsplash.com/photo-1630734277837-ebe62757b6e0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1480",
-  },
-  {
-    id: 3,
-    name: "Printare SRA4 Premium",
-    description: "Format SRA4 (320×450 mm) pentru proiecte care necesită mărimi peste standardul A4.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "A4 / SRA4",
-    slug: "a4-sra4",
-    image: "https://images.unsplash.com/photo-1630734277837-ebe62757b6e0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1480",
+    images: ["/Poze-produse/A4-SRA4.png"],
   },
 
   // Printuri clasice / Xerox - A3 / SRA3
   {
-    id: 4,
-    name: "Printare A3 Color",
-    description: "Printare color pe format A3, ideală pentru afișe mici, diagrame și prezentări de impact.",
+    id: 2,
+    name: "A3 / SRA3",
+    description: "Printare profesională alb-negru sau color pe format mare, ideală pentru afișe, diagrame și prezentări, 80–350g.",
     category: "Printuri clasice / Xerox",
     subcategory: "A3 / SRA3",
     slug: "a3-sra3",
-    image: "https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?q=80&w=1004&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 5,
-    name: "Printare A3 Alb-Negru",
-    description: "Printare A3 monocrom pentru planșe tehnice, scheme și documente mari.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "A3 / SRA3",
-    slug: "a3-sra3",
-    image: "https://images.unsplash.com/photo-1470790376778-a9fbc86d70e2?q=80&w=1004&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    images: ["/Poze-produse/A3-SRA3.png"],
   },
 
   // Autocolante
   {
-    id: 6,
-    name: "Autocolante Personalizate Mici",
-    description: "Autocolante personalizate în orice formă și mărime, rezistente la apă și UV.",
+    id: 3,
+    name: "Autocolante",
+    description: "Stickere personalizate rezistente, potrivite pentru ambalaje, etichetare, branding și marketing. In diverse dimensiuni, taiate la dimensiune, pe contur sau pretaiate. Pe diverse tipuri de autocolant: Vinil autoadeziv PVC, Glossy Transparent Vinyl, Matte Vinyl, etc.",
     category: "Printuri clasice / Xerox",
     subcategory: "Autocolante",
     slug: "autocolante",
-    image: "https://images.unsplash.com/photo-1500576992153-0271099def59?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RpY2tlcnxlbnwwfHwwfHx8MA%3D%3D",
+    images: ["/Poze-produse/sticker1.png","/Poze-produse/sticker-round.png","/Poze-produse/round-sticker.png","/Poze-produse/square-sticker.png"],
   },
 
   // Afișe / Postere
   {
-    id: 8,
-    name: "Afiș A2 Color",
-    description: "Afișe color pe hârtie glossy sau matt, perfecte pentru promoții și evenimente.",
+    id: 4,
+    name: "Afișe / Postere",
+    description: "Afișe / Postere – Print afișe color/ alb-negru, in diverse dimensiuni A2, A1, A0, A0+, pe hârtie simplă, cartonată sau texturată 80–350 g.  ",
     category: "Printuri clasice / Xerox",
     subcategory: "Afișe / Postere",
     slug: "afise-postere",
-    image: "https://images.unsplash.com/photo-1610376094992-6c3913ce221c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9zdGVyJTIwbW9ja3VwfGVufDB8fDB8fHww",
-  },
-  {
-    id: 9,
-    name: "Poster A1 Premium",
-    description: "Postere mari A1 pe hârtie fotografică premium, culori vibrante.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Afișe / Postere",
-    slug: "afise-postere",
-    image: "https://images.unsplash.com/photo-1610376094992-6c3913ce221c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9zdGVyJTIwbW9ja3VwfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/Afis-2.png","/Poze-produse/Afis.png"],
   },
 
   // Broșuri / Cataloage / Reviste
   {
-    id: 10,
-    name: "Broșură A5 - 8 pagini",
-    description: "Broșuri cu 8 pagini, printate color pe hârtie de calitate, îndoite și finisate profesional.",
+    id: 5,
+    name: "Broșuri / Cataloage / Reviste",
+    description: "Broșuri profesionale color, cu pagini multiple, ideale pentru prezentări corporate și marketing. In diverse dimensiuni: A5, A4, A3, 20x20mm, s.a.",
     category: "Printuri clasice / Xerox",
     subcategory: "Broșuri / Cataloage / Reviste",
     slug: "brosuri-cataloage-reviste",
-    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=400&fit=crop",
-  },
-  {
-    id: 11,
-    name: "Catalog A4 - 24 pagini",
-    description: "Cataloage profesionale cu legare la cotor, printare color de înaltă calitate.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Broșuri / Cataloage / Reviste",
-    slug: "brosuri-cataloage-reviste",
-    image: "https://images.unsplash.com/photo-1656379817721-774050a70dd0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnJvY2h1cmV8ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/brosura-cu-mai-multe-file-MVP-Design.png","/Poze-produse/brosurica-MVP-Design2.png","/Poze-produse/catalog-1-MVP-Design.png","/Poze-produse/catalog-2-MVP-Design.png"],
   },
 
   // Cărți de vizită
   {
-    id: 12,
-    name: "Cărți de Vizită Standard - 100 buc",
-    description: "Cărți de vizită 90x50mm, carton 300g, printare color dublu față, finisaj mat sau lucios.",
+    id: 6,
+    name: "Cărți de vizită",
+    description: "Cărți de vizită premium, tipărite pe hârtie de calitate(simplă, cartonată sau texturată). ",
     category: "Printuri clasice / Xerox",
     subcategory: "Cărți de vizită",
     slug: "carti-de-vizita",
-    image: "https://images.unsplash.com/photo-1628891439478-c613e85af7d6?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVzaW5lc3MlMjBjYXJkfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/carte-de-vizita.png"],
   },
 
   // Diplome
   {
-    id: 14,
-    name: "Diplomă Personalizată A4",
-    description: "Diplome personalizate pe hârtie specială cu textură, cu sau fără ramă.",
+    id: 7,
+    name: "Diplome",
+    description: "Diplome elegante pe hârtie premium(simplă, cartonată sau texturată).",
     category: "Printuri clasice / Xerox",
     subcategory: "Diplome",
     slug: "diplome",
-    image: "https://images.unsplash.com/photo-1638636241638-aef5120c5153?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlwbG9tYXxlbnwwfHwwfHx8MA%3D%3D",
+    images: ["https://images.unsplash.com/photo-1638636241638-aef5120c5153?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlwbG9tYXxlbnwwfHwwfHx8MA%3D%3D"],
   },
 
   // Flyere / Pliante
   {
-    id: 15,
-    name: "Flyere A6 - 500 buc",
-    description: "Flyere format A6, printare color dublu față pe hârtie 150g.",
+    id: 8,
+    name: "Flyere / Pliante",
+    description: "Flyere eficiente pentru promovare, print color, formate multiple precum A6, A5, A4, etc.",
     category: "Printuri clasice / Xerox",
     subcategory: "Flyere / Pliante",
     slug: "flyere-pliante",
-    image: "https://images.unsplash.com/photo-1591351659190-6258bbec984d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zmx5ZXJzfGVufDB8fDB8fHww",
-  },
-  {
-    id: 16,
-    name: "Pliant A4 Triptic",
-    description: "Pliant A4 îndoit triptic, printare color pe ambele fețe, hârtie glossy 200g.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Flyere / Pliante",
-    slug: "flyere-pliante",
-    image: "https://images.unsplash.com/photo-1556943418-0e5712249b9d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zmx5ZXJzfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/flayer-1.png","/Poze-produse/flayer-2.png","/Poze-produse/flayer-3.png","/Poze-produse/flayer-MVP-Design1.png"],
   },
 
   // Mape cu buzunar
   {
-    id: 17,
-    name: "Mapă Prezentare cu Buzunare",
-    description: "Mape personalizate cu buzunare interioare pentru documente, printare color.",
+    id: 9,
+    name: "Mape cu buzunar",
+    description: "Mape personalizate cu buzunar, ideale pentru prezentări, oferte și documente corporate.",
     category: "Printuri clasice / Xerox",
     subcategory: "Mape cu buzunar",
     slug: "mape-cu-buzunar",
-    image: "https://images.unsplash.com/photo-1584628804572-f84284d9f388?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9sZGVyfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
-  // Meniuri
+  // Meniuri (restaurant / cafenea)
   {
-    id: 18,
-    name: "Meniu Restaurant A4",
-    description: "Meniu personalizat pentru restaurant, laminat sau în coperte rigide.",
+    id: 10,
+    name: "Meniuri (restaurant / cafenea)",
+    description: "Meniuri personalizate, potrivite pentru restaurante, bistrouri și cafenele, diverse evenimente (nunta, botez, s.a.), pe hârtie simplă, cartonată sau texturată.",
     category: "Printuri clasice / Xerox",
     subcategory: "Meniuri (restaurant / cafenea)",
     slug: "meniuri-restaurant-cafenea",
-    image: "https://images.unsplash.com/photo-1625173616412-7b403d49a41e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWVudXxlbnwwfHwwfHx8MA%3D%3D",
-  },
-  {
-    id: 19,
-    name: "Meniu Cafenea Triptic",
-    description: "Meniu format A5 triptic pentru cafenea, carton 300g laminat.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Meniuri (restaurant / cafenea)",
-    slug: "meniuri-restaurant-cafenea",
-    image: "https://images.unsplash.com/photo-1599250300435-b9693f21830d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWVudXxlbnwwfHwwfHx8MA%3D%3D",
+    images: ["/Poze-produse/Meniu-MVP-Design-1.png"],
   },
 
   // Plicuri
   {
-    id: 20,
-    name: "Plicuri DL - 100 buc",
-    description: "Plicuri personalizate DL (110x220mm) cu logo și adresă.",
+    id: 11,
+    name: "Plicuri",
+    description: "Plicuri personalizate în diverse formate (DL, C5, C4), cu logo și elemente grafice imprimate profesional.",
     category: "Printuri clasice / Xerox",
     subcategory: "Plicuri",
     slug: "plicuri",
-    image: "https://images.unsplash.com/photo-1567794636765-5e4869f627e1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZW52ZWxvcGV8ZW58MHx8MHx8fDA%3D",
+    images: ["https://images.unsplash.com/photo-1567794636765-5e4869f627e1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZW52ZWxvcGV8ZW58MHx8MHx8fDA%3D"],
   },
 
-  // Cărți poștale
+  // Print & Cut colantare Autoƒ
   {
-    id: 21,
-    name: "Cărți Poștale A6 - 50 buc",
-    description: "Cărți poștale personalizate pe carton 300g cu finisaj lucios.",
+    id: 37,
+    name: "Print & Cut colantare Auto",
+    description: "Colantări auto personalizate cu print și tăiere de precizie, vinil rezistent la UV și intemperii pentru autovehicule.",
+    category: "Printuri clasice / Xerox",
+    subcategory: "Print & Cut colantare Auto",
+    slug: "print-cut-colantare-auto",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+  },
+
+  // Print & Cut etichete vinil
+  {
+    id: 38,
+    name: "Print & Cut etichete vinil",
+    description: "Etichete personalizate pe vinil, tăiate la contur, rezistente la apă și UV, ideale pentru produse și branding.",
+    category: "Printuri clasice / Xerox",
+    subcategory: "Print & Cut etichete vinil",
+    slug: "print-cut-etichete-vinil",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+  },
+
+  // Print & Cut folii geamuri / window decor
+  {
+    id: 39,
+    name: "Print & Cut folii geamuri / window decor",
+    description: "Folii decorative pentru geamuri și vitrine, print personalizat pe folie transparentă, mată sau opacă.",
+    category: "Printuri clasice / Xerox",
+    subcategory: "Print & Cut folii geamuri / window decor",
+    slug: "print-cut-folii-geamuri-window-decor",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+  },
+
+  // Print tapet
+  {
+    id: 40,
+    name: "Print tapet",
+    description: "Tapet personalizat cu printare de înaltă rezoluție, disponibil în diverse texturi și materiale, pentru orice ambient.",
+    category: "Printuri clasice / Xerox",
+    subcategory: "Print tapet",
+    slug: "print-tapet",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+  },
+
+  // Carte poștală / Cartoline
+  {
+    id: 12,
+    name: "Carte poștală / Cartoline",
+    description: "Cărți poștale și cartoline personalizate pe carton premium, cu finisaj lucios sau matt, ideale pentru orice ocazie.",
     category: "Printuri clasice / Xerox",
     subcategory: "Carte poștală / Cartoline",
     slug: "carte-postala-cartoline",
-    image: "https://images.unsplash.com/photo-1681722745914-580d7f4d750e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cG9zdCUyMGNhcmR8ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/cartolina.png"],
   },
 
   // Vouchere
   {
-    id: 22,
-    name: "Vouchere Cadou - 50 buc",
-    description: "Vouchere cadou personalizate pe carton premium, cu numerotare.",
+    id: 13,
+    name: "Vouchere",
+    description: "Vouchere personalizate pentru magazine, servicii, campanii promoționale și fidelizare.",
     category: "Printuri clasice / Xerox",
     subcategory: "Vouchere",
     slug: "vouchere",
-    image: "https://images.unsplash.com/photo-1526614180703-827d23e7c8f2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dm91Y2hlcnxlbnwwfHwwfHx8MA%3D%3D",
+    images: ["/Poze-produse/voucher-1-MVP-Design.png","/Poze-produse/voucher-2-MVP-Design.png"],
   },
 
-  // Printuri mari
+  // Printuri mari (A0+, A0, A1, A2)
   {
-    id: 23,
-    name: "Print A0 Color",
-    description: "Printare color pe format A0 (841×1189mm) pentru proiecte mari, planșe, afișe.",
+    id: 14,
+    name: "Printuri mari (A0+, A0, A1, A2)",
+    description: "Printare color profesională în formate mari (A2, A1, A0, A0+), ideală pentru afișe, planșe și proiecte de impact.",
     category: "Printuri clasice / Xerox",
     subcategory: "Printuri mari (A0+, A0, A1, A2)",
     slug: "printuri-mari",
-    image: "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJpbnR8ZW58MHx8MHx8fDA%3D",
-  },
-  {
-    id: 24,
-    name: "Print A1 Color",
-    description: "Printare color format A1 (594×841mm) pentru afișe și planșe tehnice.",
-    category: "Printuri clasice / Xerox",
-    subcategory: "Printuri mari (A0+, A0, A1, A2)",
-    slug: "printuri-mari",
-    image: "https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJpbnR8ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
-  // Lucrări academice - Lucrări de diplomă
+  // Lucrări de diplomă
   {
-    id: 25,
-    name: "Legare Lucrare Licență",
-    description: "Printare și legare profesională pentru lucrări de licență, copertă rigidă personalizată.",
+    id: 15,
+    name: "Lucrări de diplomă",
+    description: "Print profesional și legare premium pentru lucrări de licență, master și disertații, teze de doctorat si de abilitare, etc.",
     category: "Lucrări academice & profesionale",
     subcategory: "Lucrări de diplomă",
     slug: "lucrari-de-diploma",
-    image: "https://images.unsplash.com/photo-1660479123634-2c700dfbbbdb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGhlc2lzfGVufDB8fDB8fHww",
-  },
-  {
-    id: 26,
-    name: "Legare Disertație",
-    description: "Printare și legare pentru disertații, copertă premium cu inscripționare în relief.",
-    category: "Lucrări academice & profesionale",
-    subcategory: "Lucrări de diplomă",
-    slug: "lucrari-de-diploma",
-    image: "https://images.unsplash.com/photo-1660479123634-2c700dfbbbdb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGhlc2lzfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
-  // Planșe inginerie
+  // Lucrări de licență
   {
-    id: 27,
-    name: "Planșe Inginerie A0",
-    description: "Printare planșe tehnice A0 cu pliere standard pentru arhivare.",
+    id: 44,
+    name: "Lucrări de licență",
+    description: "Printare și legare profesională pentru lucrări de licență, copertă personalizată cu inscripționare, finisaj de calitate.",
+    category: "Lucrări academice & profesionale",
+    subcategory: "Lucrări de licență",
+    slug: "lucrari-de-licenta",
+    images: ["/Poze-produse/licenta.png"],
+  },
+
+  // Planșe inginerie / arhitectură + Pliere
+  {
+    id: 16,
+    name: "Planșe inginerie / arhitectură + Pliere",
+    description: "Print planșe tehnice format mare, cu opțiune profesională de pliere la A4. ",
     category: "Lucrări academice & profesionale",
     subcategory: "Planșe inginerie / arhitectură + Pliere",
     slug: "planse-inginerie-arhitectura",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=400&fit=crop",
-  },
-  {
-    id: 28,
-    name: "Planșe Arhitectură A1",
-    description: "Printare planșe arhitectură A1, hârtie specială, cu sau fără pliere.",
-    category: "Lucrări academice & profesionale",
-    subcategory: "Planșe inginerie / arhitectură + Pliere",
-    slug: "planse-inginerie-arhitectura",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=400&fit=crop",
+    images: ["/Poze-produse/Planse-1-MVP-Design.png","/Poze-produse/Planse-2-MVP-Design.png","/Poze-produse/Planse-3-MVP-Design.png"],
   },
 
-  // Rețetare medicale
+  // Rețetare medicale / Formulare
   {
-    id: 29,
-    name: "Rețetare Medicale Personalizate - 100 buc",
-    description: "Bloc rețetare medicale cu antet personalizat conform legislației.",
+    id: 17,
+    name: "Rețetare medicale / Formulare",
+    description: "Formulare și rețetare medicale personalizate pentru cabinete, clinici și laboratoare.",
     category: "Lucrări academice & profesionale",
     subcategory: "Rețetare medicale / Formulare",
     slug: "retetare-medicale-formulare",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=400&fit=crop",
-  },
-  {
-    id: 30,
-    name: "Formulare Personalizate A5 - 100 buc",
-    description: "Formulare personalizate pentru diverse scopuri profesionale.",
-    category: "Lucrări academice & profesionale",
-    subcategory: "Rețetare medicale / Formulare",
-    slug: "retetare-medicale-formulare",
-    image: "https://images.unsplash.com/photo-1554224155-1696413565d3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zm9ybXN8ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
-  // Papetărie - Agende
+  // Agende / Notebooks
   {
-    id: 31,
-    name: "Agendă Personalizată A5",
-    description: "Agendă cu copertă personalizată, 365 de pagini, hârtie premium.",
+    id: 18,
+    name: "Agende / Notebooks",
+    description: "Agende personalizate cu copertă premium,  ideale pentru branding, office și cadouri corporate. In dimensiunile A4, A5, A6. Coperta poate fi soft cover sau hard cover. ",
     category: "Papetărie & Office",
     subcategory: "Agende / Notebooks",
     slug: "agende-notebooks",
-    image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=400&h=400&fit=crop",
-  },
-  {
-    id: 32,
-    name: "Notebook Premium A4",
-    description: "Notebook cu copertă rigidă personalizată, 200 pagini dictando.",
-    category: "Papetărie & Office",
-    subcategory: "Agende / Notebooks",
-    slug: "agende-notebooks",
-    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=400&fit=crop",
+    images: ["/Poze-produse/agenda-a6.png","/Poze-produse/agenda-hard-cover.png"],
   },
 
   // Plannere de perete
   {
-    id: 33,
-    name: "Planner Perete Anual",
-    description: "Planner de perete pentru întregul an, laminat, marker inclus.",
+    id: 19,
+    name: "Plannere de perete",
+    description: "Plannere mari pentru birou, ideale pentru planificare, proiecte și calendarizare. In diverse dimensiuni, A4, A3, A2, A1, A0, A0+, s.a.",
     category: "Papetărie & Office",
     subcategory: "Plannere de perete",
     slug: "plannere-de-perete",
-    image: "https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGxhbm5lcnxlbnwwfHwwfHx8MA%3D%3D",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
   // Calendare
   {
-    id: 34,
-    name: "Calendar Perete 2026",
-    description: "Calendar de perete personalizat cu imagini și logo-ul companiei.",
+    id: 20,
+    name: "Calendare",
+    description: "Calendare personalizate de buzunar, birou sau perete, cu imagini de calitate și branding. In diverse dimensiuni, DL, 10x20cm, 15x15cm A5, A4, A3, s.a.",
     category: "Papetărie & Office",
     subcategory: "Calendare",
     slug: "calendare",
-    image: "https://images.unsplash.com/photo-1611302457661-d24c21494f2a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FsZW5kYXJ8ZW58MHx8MHx8fDA%3D",
-  },
-  {
-    id: 35,
-    name: "Calendar Birou 2026",
-    description: "Calendar de birou cu suport personalizat, 12 pagini.",
-    category: "Papetărie & Office",
-    subcategory: "Calendare",
-    slug: "calendare",
-    image: "https://images.unsplash.com/photo-1435527173128-983b87201f4d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FsZW5kYXJ8ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
   // Canvas
   {
-    id: 36,
-    name: "Canvas 40x60 cm",
-    description: "Printare pe canvas cu montare pe ramă din lemn, orice imagine.",
+    id: 21,
+    name: "Canvas",
+    description: "Print pe pânză canvas de înaltă calitate, ideal pentru decor interior, birouri, spații comerciale și cadouri personalizate. Cu serviciu de prindere pe șasiu. In diverse dimensiuni: 30x30cm, 30x40cm, 40x40cm, 40x50cm, 50x50cm, 50x60cm, s.a.",
     category: "Papetărie & Office",
     subcategory: "Canvas",
     slug: "canvas",
-    image: "https://images.unsplash.com/photo-1580493113011-ad79f792a7c2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FudmFzfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/canvas-2.png","/Poze-produse/canvas.png"],
   },
 
   // Ecusoane
   {
-    id: 37,
-    name: "Ecusoane Personalizate - 50 buc",
-    description: "Ecusoane personalizate cu pin sau agrafă, diverse forme și mărimi.",
+    id: 22,
+    name: "Ecusoane",
+    description: "Ecusoane personalizate pentru evenimente sau corporații, cu pin sau agrafă, diverse forme și mărimi disponibile.",
     category: "Papetărie & Office",
     subcategory: "Ecusoane",
     slug: "ecusoane",
-    image: "https://images.unsplash.com/photo-1572727268047-362eb03e6aa0?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGJhZGdlc3xlbnwwfHwwfHx8MA%3D%3D",
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
   },
 
-  // Textile - Produse personalizate
+  // Produse personalizate
   {
-    id: 38,
-    name: "Pixuri Personalizate - 100 buc",
-    description: "Pixuri cu logo-ul companiei, diverse culori disponibile.",
-    category: "Textile & Produse promoționale",
-    subcategory: "Produse personalizate (Pixuri, Tote bags, etc.)",
+    id: 23,
+    name: "Produse personalizate",
+    description: "Produse promoționale personalizate: pixuri, brelouri, agende și multe altele, cu logo sau design unic.",
+    category: "Textile & Produse personalizate",
+    subcategory: "Produse personalizate",
     slug: "produse-personalizate",
-    image: "https://images.unsplash.com/photo-1585336261022-680e295ce3fe?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGVufGVufDB8fDB8fHww",
-  },
-  {
-    id: 39,
-    name: "Tote Bags Personalizate - 50 buc",
-    description: "Genți textile personalizate cu print color rezistent.",
-    category: "Textile & Produse promoționale",
-    subcategory: "Produse personalizate (Pixuri, Tote bags, etc.)",
-    slug: "produse-personalizate",
-    image: "https://images.unsplash.com/photo-1630381260512-e3fe55c11973?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8dG90ZSUyMGJhZ3N8ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/cana.png","/Poze-produse/cana-2.png","/Poze-produse/punga.png","/Poze-produse/pix-personalizat-MVP-Design.png"],
   },
 
-  // Textile personalizate
+  // Tricouri personalizate
   {
-    id: 40,
-    name: "Prosoape Personalizate",
-    description: "Prosoape cu broderie sau print personalizat, diverse mărimi.",
-    category: "Textile & Produse promoționale",
-    subcategory: "Textile personalizate",
-    slug: "textile-personalizate",
-    image: "https://images.unsplash.com/photo-1666934209606-a955a12edd63?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjB0b3dlbHN8ZW58MHx8MHx8fDA%3D",
+    id: 24,
+    name: "Tricouri personalizate",
+    description: "Tricouri personalizate cu print rezistent, perfecte pentru promoții și merchandising.",
+    category: "Textile & Produse personalizate",
+    subcategory: "Tricouri personalizate",
+    slug: "tricouri-personalizate",
+    images: ["/Poze-produse/tricou1.png","/Poze-produse/tricou-spate.png","/Poze-produse/tricou-fata.png","/Poze-produse/tricou-fata-2.png"],
   },
 
-  // Tricouri
+  // Hanorace personalizate
+  {
+    id: 25,
+    name: "Hanorace personalizate",
+    description: "Hanorace personalizate cu print durabil pentru branding, echipe sau merchandising.",
+    category: "Textile & Produse personalizate",
+    subcategory: "Hanorace personalizate",
+    slug: "hanorace-personalizate",
+    images: ["/Poze-produse/hanorac-spate.png"],
+  },
+
+  // Tote bag / Geanta din panza
   {
     id: 41,
-    name: "Tricouri Personalizate - 10 buc",
-    description: "Tricouri cu print DTG full color, bumbac 100%, diverse mărimi.",
-    category: "Textile & Produse promoționale",
-    subcategory: "Tricouri personalizate",
-    slug: "tricouri-personalizate",
-    image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjB0JTIwc2hpcnR8ZW58MHx8MHx8fDA%3D",
-  },
-  {
-    id: 42,
-    name: "Tricouri Premium Personalizate - 10 buc",
-    description: "Tricouri premium cu broderie sau print complex, bumbac premium.",
-    category: "Textile & Produse promoționale",
-    subcategory: "Tricouri personalizate",
-    slug: "tricouri-personalizate",
-    image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=400&h=400&fit=crop",
+    name: "Tote bag / Geanta din panza",
+    description: "Sacoșe textile personalizate, ecologice, perfecte pentru retail, branduri și evenimente.",
+    category: "Textile & Produse personalizate",
+    subcategory: "Tote bag / Geanta din panza",
+    slug: "tote-bag-geanta-panza",
+    images: ["/Poze-produse/punga.png"],
   },
 
-  // Evenimente - Invitații
+  // Cana personalizata
+  {
+    id: 42,
+    name: "Cana personalizata",
+    description: "Căni personalizate cu print foto sau logo, ceramică de calitate, ideale pentru cadouri sau promovare.",
+    category: "Textile & Produse personalizate",
+    subcategory: "Cana personalizata",
+    slug: "cana-personalizata",
+    images: ["/Poze-produse/cana.png","/Poze-produse/cana-2.png"],
+  },
+
+  // Invitații de nuntă/botez/evenimente
+  {
+    id: 26,
+    name: "Invitații de nuntă/botez/evenimente",
+    description: "Invitații de nuntă elegante, cu hârtie premium (simplă, cartonată sau texturată) și design personalizat.",
+    category: "Evenimente & Cadouri personalizate",
+    subcategory: "Invitații de nuntă/botez/evenimente",
+    slug: "invitatii-nunta-botez-evenimente",
+    images: ["/Poze-produse/invitatie-de-nunta1-MVP-Design.png","/Poze-produse/invitatie-de-nunta2-MVP-Design.png"],
+  },
+
+  // Bilete evenimente
   {
     id: 43,
-    name: "Invitații Nuntă - 50 buc",
-    description: "Invitații de nuntă personalizate pe carton special cu finisaje premium.",
+    name: "Bilete evenimente",
+    description: "Bilete personalizate cu elemente de rituire, ideale pentru concerte, conferințe și festivaluri. La cere pot fi inseriate.",
     category: "Evenimente & Cadouri personalizate",
-    subcategory: "Invitații de nuntă/botez/evenimente",
-    slug: "invitatii-nunta-botez-evenimente",
-    image: "https://images.unsplash.com/photo-1632610992723-82d7c212f6d7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMGludml0YXRpb258ZW58MHx8MHx8fDA%3D",
-  },
-  {
-    id: 44,
-    name: "Invitații Botez - 50 buc",
-    description: "Invitații de botez personalizate cu design unic și plicuri incluse.",
-    category: "Evenimente & Cadouri personalizate",
-    subcategory: "Invitații de nuntă/botez/evenimente",
-    slug: "invitatii-nunta-botez-evenimente",
-    image: "https://images.unsplash.com/photo-1632610992723-82d7c212f6d7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2VkZGluZyUyMGludml0YXRpb258ZW58MHx8MHx8fDA%3D",
+    subcategory: "Bilete evenimente",
+    slug: "bilete-evenimente",
+    images: ["/Poze-produse/bileteevenimente.jpeg"],
   },
 
   // Felicitări
   {
-    id: 45,
-    name: "Felicitări Personalizate - 25 buc",
-    description: "Felicitări personalizate pentru orice ocazie, cu plicuri.",
+    id: 27,
+    name: "Felicitări",
+    description: "Felicitări personalizate pentru evenimente și sărbători, cu print color de calitate.",
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Felicitări",
     slug: "felicitari",
-    image: "https://images.unsplash.com/photo-1579532649672-13fac8cde626?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YmlydGhkYXklMjBjYXJkfGVufDB8fDB8fHww",
+    images: ["/Poze-produse/felicitare1.png","/Poze-produse/felicitar2.png","/Poze-produse/felicitar3.png"],
   },
 
   // Albume foto
   {
-    id: 46,
-    name: "Album Foto Premium 30x30 cm",
-    description: "Album foto cu copertă rigidă personalizată, 40 pagini interioare.",
+    id: 28,
+    name: "Albume foto",
+    description: "Albume foto premium cu print de calitate și legare elegantă, perfecte pentru evenimente sau portofolii. In diverse dimensiuni: 20x20mm, 15x15mm, A4, A5, etc. Portret, landscape sau square.",
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Albume foto",
     slug: "albume-foto",
-    image: "https://images.unsplash.com/photo-1594333614467-15503a37381a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBob3RvJTIwYWxidW18ZW58MHx8MHx8fDA%3D",
+    images: ["/Poze-produse/album-15x15.png"],
   },
 
   // Poze / Fotografii
   {
-    id: 47,
-    name: "Print Foto 10x15 cm - 100 buc",
-    description: "Printare fotografii format standard pe hârtie fotografică premium.",
+    id: 29,
+    name: "Poze / Fotografii",
+    description: "Printare fotografii de înaltă calitate pe hârtie fotografică premium, disponibile în diverse formate standard sau personalizate.",
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Poze / Fotografii",
     slug: "poze-fotografii",
-    image: "https://images.unsplash.com/photo-1531684096782-1af8c28ddb95?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG8lMjBwcmludHxlbnwwfHwwfHx8MA%3D%3D",
-  },
-  {
-    id: 48,
-    name: "Print Foto 20x30 cm",
-    description: "Printare fotografii mari pe hârtie fotografică glossy sau matt.",
-    category: "Evenimente & Cadouri personalizate",
-    subcategory: "Poze / Fotografii",
-    slug: "poze-fotografii",
-    image: "https://images.unsplash.com/photo-1531684096782-1af8c28ddb95?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGhvdG8lMjBwcmludHxlbnwwfHwwfHx8MA%3D%3D",
+    images: ["/Poze-produse/poza-1.png"],
   },
 
   // Tablouri
   {
-    id: 49,
-    name: "Tablou Canvas 60x90 cm",
-    description: "Tablou pe canvas cu montare pe ramă lemn, orice imagine sau design.",
+    id: 30,
+    name: "Tablouri",
+    description: "Tablouri personalizate pe canvas, forex sau hârtie foto, cu montare pe ramă, orice imagine sau design.",
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Tablouri",
     slug: "tablouri",
-    image: "https://images.unsplash.com/photo-1580493113011-ad79f792a7c2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FudmFzfGVufDB8fDB8fHww",
+    images: ["https://images.unsplash.com/photo-1580493113011-ad79f792a7c2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FudmFzfGVufDB8fDB8fHww"],
   },
 
   // Mape de prezentare
   {
-    id: 50,
-    name: "Mapă Prezentare Premium A4",
-    description: "Mapă de prezentare cu print personalizat, copertă rigidă, buzunare interioare.",
+    id: 31,
+    name: "Mape de prezentare",
+    description: "Mape de prezentare personalizate cu print profesional, copertă rigidă și buzunare interioare pentru documente.",
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Mape de prezentare",
     slug: "mape-de-prezentare",
-    image: "https://images.unsplash.com/photo-1595860041826-de0b53177bcd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZpbGVzfGVufDB8fDB8fHww",
+    images: ["https://images.unsplash.com/photo-1595860041826-de0b53177bcd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZpbGVzfGVufDB8fDB8fHww"],
   },
 
   // Lista de invitați
   {
-    id: 51,
-    name: "Lista Invitați Nuntă Premium",
-    description: "Listă de invitați personalizată cu design elegant pentru evenimente.",
+    id: 32,
+    name: "Lista de invitați",
+    description: "Liste de invitați personalizate pentru evenimente, design elegant, printare pe hârtie premium sau canvas.",
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Lista de invitați",
     slug: "lista-de-invitati",
-    image: "https://images.unsplash.com/photo-1737749685390-0959c05aecbb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW52aXRhdGlvbnMlMjBsaXN0fGVufDB8fDB8fHww",
+    images: ["https://images.unsplash.com/photo-1737749685390-0959c05aecbb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW52aXRhdGlvbnMlMjBsaXN0fGVufDB8fDB8fHww"],
   },
 
-  // Publicitate - Bannere
+  // Bannere / Mesh-uri
   {
-    id: 52,
-    name: "Banner 2x1 m",
-    description: "Banner personalizat print full color pe material frontlit rezistent.",
+    id: 33,
+    name: "Bannere / Mesh-uri",
+    description: "Bannere outdoor rezistente la intemperii, mesh sau vinyl, potrivite pentru publicitate vizibilă, in divesre dimensiuni, A3, A2, A1, A0, A0+, pana la 1,6m/latura.",
     category: "Publicitate & Expunere",
     subcategory: "Bannere / Mesh-uri",
     slug: "bannere-mesh-uri",
-    image: "https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-  {
-    id: 53,
-    name: "Mesh 3x2 m",
-    description: "Banner mesh perforat pentru exterior, rezistent la vânt.",
-    category: "Publicitate & Expunere",
-    subcategory: "Bannere / Mesh-uri",
-    slug: "bannere-mesh-uri",
-    image: "https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
+      images: ["/Poze-produse/banner.png","/Poze-produse/bilboard.png"],
+    },
 
-  // Roll-up
+  // Roll-up / Pop-up
   {
-    id: 54,
-    name: "Roll-up 85x200 cm",
-    description: "Roll-up profesional cu suport aluminiu și print de calitate, geantă de transport inclusă.",
+    id: 34,
+    name: "Roll-up / Pop-up",
+    description: "Roll-up-uri profesionale, ușor de montat, ideale pentru evenimente și campanii de promovare.",
     category: "Publicitate & Expunere",
-    subcategory: "Roll-up",
-    slug: "roll-up",
-    image: "https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  },
-
-  // Pop-up
-  {
-    id: 55,
-    name: "Pop-up 3x2 m",
-    description: "Stand expozițional pop-up complet personalizat cu print textile și structură pliabilă.",
-    category: "Publicitate & Expunere",
-    subcategory: "Pop-up (standuri expoziționale)",
-    slug: "pop-up-standuri-expozitionale",
-    image: "https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    subcategory: "Roll-up / Pop-up",
+    slug: "roll-up-pop-up",
+    images: ["/Poze-produse/roll-up.png"],
   },
 
   // Steaguri
   {
-    id: 56,
-    name: "Steag Publicitаr 3 m cu Suport",
-    description: "Steag tip plajă personalizat cu print dublu față și suport metalic.",
+    id: 36,
+    name: "Steaguri",
+    description: "Steaguri personalizate pentru exterior, branduri, evenimente și vizibilitate maximă.",
     category: "Publicitate & Expunere",
     subcategory: "Steaguri",
     slug: "steaguri",
-    image: "https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    images: ["https://images.unsplash.com/photo-1691480267478-8b39a167075b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"],
   },
 ];
 
