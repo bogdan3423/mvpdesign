@@ -102,7 +102,7 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
                     alt={selectedProduct.name}
                     fill
                     className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 512px"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                     loading="eager"
                     placeholder="blur"

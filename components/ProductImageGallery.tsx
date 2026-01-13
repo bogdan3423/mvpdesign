@@ -60,7 +60,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
           alt={productName}
           fill
           className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 600px, 512px"
+          sizes="(max-width: 1024px) 100vw, 50vw"
           priority
           placeholder="blur"
           blurDataURL={shimmerBase64}
@@ -101,7 +101,7 @@ export default function ProductImageGallery({ images, productName }: ProductImag
                 alt={`${productName} - imagine ${index + 1}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 600px, 512px"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 priority={index === 0}
                 loading={index === 0 ? 'eager' : 'lazy'}
                 placeholder="blur"
