@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import ProductCard from './ProductCard';
@@ -10,8 +10,39 @@ interface ProductGalleryProps {
   products: Product[];
 }
 
+// Shimmer placeholder
+const shimmerBase64 = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg==';
+
+// Track preloaded images to avoid duplicate preloads
+const preloadedImages = new Set<string>();
+
 export default function ProductGallery({ products }: ProductGalleryProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [preloadedProductIds, setPreloadedProductIds] = useState<Set<number>>(new Set());
+
+  // Preload image function
+  const preloadImage = useCallback((src: string) => {
+    if (preloadedImages.has(src)) return;
+    preloadedImages.add(src);
+    const img = new window.Image();
+    img.src = src;
+  }, []);
+
+  // Preload product images on hover
+  const handleProductHover = useCallback((product: Product) => {
+    if (preloadedProductIds.has(product.id)) return;
+    
+    // Preload all images for this product
+    product.images.forEach(src => preloadImage(src));
+    setPreloadedProductIds(prev => new Set([...prev, product.id]));
+  }, [preloadedProductIds, preloadImage]);
+
+  // Preload first 8 products' images immediately on mount
+  useEffect(() => {
+    products.slice(0, 8).forEach(product => {
+      product.images.forEach(src => preloadImage(src));
+    });
+  }, [products, preloadImage]);
 
   useEffect(() => {
     if (selectedProduct) {
@@ -29,12 +60,17 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {products.map((product, index) => (
-          <ProductCard
+          <div 
             key={product.id}
-            product={product}
-            onClick={() => setSelectedProduct(product)}
-            priority={index < 8}
-          />
+            onMouseEnter={() => handleProductHover(product)}
+            onTouchStart={() => handleProductHover(product)}
+          >
+            <ProductCard
+              product={product}
+              onClick={() => setSelectedProduct(product)}
+              priority={index < 8}
+            />
+          </div>
         ))}
       </div>
 
@@ -59,7 +95,7 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
             </button>
 
             <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="relative h-72 lg:h-full bg-gray-100">
+              <div className="relative h-72 lg:h-full min-h-[288px] lg:min-h-[400px] bg-gray-100">
                 {selectedProduct.images.length > 0 ? (
                   <Image
                     src={selectedProduct.images[0]}
@@ -68,8 +104,9 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
+                    loading="eager"
                     placeholder="blur"
-                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg=="
+                    blurDataURL={shimmerBase64}
                   />
                 ) : (
                   <div className="flex items-center justify-center h-full text-gray-400">
