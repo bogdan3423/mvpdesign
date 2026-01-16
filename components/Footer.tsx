@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -9,14 +10,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="bg-orange-500 text-white font-bold text-xl px-3 py-1 rounded">
-                MVP
-              </div>
-              <div className="text-xl font-bold">DESIGN</div>
+            <div className="mb-4 bg-white p-2 rounded inline-block">
+              <Image
+                src="/logo.png"
+                alt="MVP DESIGN Logo"
+                width={120}
+                height={40}
+                style={{ height: '50px', width: 'auto' }}
+              />
             </div>
             <p className="text-gray-400 text-sm">
-              Papetărie modernă ce oferă soluții variate, inspirate, utile și de calitate pentru orice nevoie creativă.
+               Servicii creative moderne, cu soluții versatile, practice și de impact pentru proiecte de design, print și materiale tipărite.
             </p>
           </div>
 
@@ -100,7 +104,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">
-            Copyright © 2025 MVP DESIGN. All rights reserved.
+            Copyright © 2026 MVP DESIGN. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a 

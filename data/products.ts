@@ -180,7 +180,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Diplome",
     slug: "diplome",
-    images: ["https://images.unsplash.com/photo-1638636241638-aef5120c5153?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlwbG9tYXxlbnwwfHwwfHx8MA%3D%3D"],
+    images: ["/Poze-produse/diplomapoza.jpeg","/Poze-produse/diplomapoza2.jpeg"],
   },
 
   // Flyere / Pliante

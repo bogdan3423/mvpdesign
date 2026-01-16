@@ -99,68 +99,24 @@ export default function DesignPage() {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Design Digital</h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
-                  Design-uri optimizate pentru mediul online
+                  Design-uri personalizate pentru promovare online și offline
+
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Web design & UI/UX</li>
-                  <li>• Social media graphics</li>
-                  <li>• Bannere web & ads</li>
+                  <li>• Bannere pentru evenimente și promoții</li>
+                  <li>• Prelucrare imagini și retuș foto</li>
+                  <li>• Layout-uri pentru oferte și campanii</li>
                 </ul>
               </div>
 
               {/* Packaging Design */}
-              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
-                <div className="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Packaging Design</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  Design de ambalaje care comunică valoare
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Design cutii produse</li>
-                  <li>• Etichete și label design</li>
-                  <li>• Prototipare și mockup-uri</li>
-                </ul>
-              </div>
+              
 
               {/* Illustration */}
-              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
-                <div className="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Ilustrații</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  Ilustrații personalizate pentru proiectele tale
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Ilustrații digitale</li>
-                  <li>• Iconografie personalizată</li>
-                  <li>• Mascote & character design</li>
-                </ul>
-              </div>
+              
 
               {/* Infographics */}
-              <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
-                <div className="w-14 h-14 bg-orange-500 rounded-lg flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Infografice</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  Transformăm date în vizuale ușor de înțeles
-                </p>
-                <ul className="space-y-2 text-sm text-gray-600">
-                  <li>• Infografice educaționale</li>
-                  <li>• Vizualizare date business</li>
-                  <li>• Prezentări și rapoarte</li>
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>

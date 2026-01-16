@@ -27,17 +27,15 @@ export default function AboutPage() {
                 Povestea Noastră
               </h2>
               <p className="text-lg text-gray-600 mb-6">
-                MVP DESIGN a fost fondat cu o misiune simplă: să oferim papetărie și articole de birou 
-                de înaltă calitate profesioniștilor, studenților și persoanelor creative din toată România.
+                MVP DESIGN a fost fondat cu o misiune simplă: să oferim soluții complete de design, editare și print de înaltă calitate profesioniștilor, studenților și persoanelor creative din toată România.
+
               </p>
               <p className="text-lg text-gray-600 mb-6">
-                Credem că instrumentele potrivite pot face toată diferența în munca ta, studii 
-                sau proiecte creative. De aceea, selecționăm cu atenție produsele noastre pentru a include doar 
-                cele mai bune mărci și produse care îndeplinesc standardele noastre de calitate.
+                Credem că instrumentele și serviciile potrivite pot face diferența în munca ta, în proiectele de studiu sau în orice inițiativă creativă. De aceea, selecționăm cu atenție produsele și serviciile noastre pentru a include doar cele mai bune mărci și soluții care respectă standardele noastre ridicate de calitate.
+
               </p>
               <p className="text-lg text-gray-600">
-                Angajamentul nostru pentru servicii personalizate înseamnă că te poți baza întotdeauna pe sfaturi 
-                și asistență de specialitate atunci când alegi produsele perfecte pentru nevoile tale.
+                Ne dedicăm să oferim consultanță personalizată și suport specializat, astfel încât fiecare client să găsească exact soluția potrivită pentru proiectele sale de design, materiale tipărite sau alte nevoi creative.
               </p>
             </div>
             <div className="relative h-96 lg:h-full min-h-[500px] rounded-lg overflow-hidden shadow-xl">
