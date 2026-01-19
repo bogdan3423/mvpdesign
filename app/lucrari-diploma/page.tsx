@@ -1,18 +1,20 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { products } from '@/data/products';
+'use client';
 
-export const metadata = {
+import Link from 'next/link';
+import ContactForm from '@/components/ContactForm';
+
+// Note: metadata needs to be in a separate file when using 'use client'
+// export const metadata = {
+//   title: 'Lucrări de Diplomă - Printare și Legare Profesională | MVP DESIGN',
+//   description: 'Servicii complete pentru lucrări de diplomă, licență și disertații - printare profesională, legare de calitate și finisaje premium.',
+// };
+
+const metadata = {
   title: 'Lucrări de Diplomă - Printare și Legare Profesională | MVP DESIGN',
   description: 'Servicii complete pentru lucrări de diplomă, licență și disertații - printare profesională, legare de calitate și finisaje premium.',
 };
 
 export default function LucrariDiplomaPage() {
-  // Filter products from "Lucrări academice & profesionale" category
-  const academicProducts = products.filter(
-    (product) => product.category === 'Lucrări academice & profesionale'
-  );
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
@@ -134,71 +136,19 @@ export default function LucrariDiplomaPage() {
         </div>
       </section>
 
-      {/* Products Section */}
+      {/* Contact Form Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center">
-              Servicii pentru Lucrări Academice
+              Solicită o Ofertă
             </h2>
-            <p className="text-lg text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-              Oferim soluții complete pentru toate tipurile de lucrări academice și profesionale
+            <p className="text-lg text-gray-600 mb-12 text-center">
+              Completează formularul de mai jos și te vom contacta în cel mai scurt timp pentru a discuta despre lucrarea ta de diplomă
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {academicProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
-                >
-                  <div className="relative h-64 overflow-hidden">
-                    {product.images.length > 0 ? (
-                      <Image
-                        src={product.images[0]}
-                        alt={product.name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full bg-gray-100 text-gray-400">
-                        <svg className="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-6">
-                    <div className="mb-2">
-                      <span className="inline-block bg-orange-100 text-orange-700 text-xs px-3 py-1 rounded-full font-semibold">
-                        {product.subcategory}
-                      </span>
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-orange-500 transition-colors">
-                      {product.name}
-                    </h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3">{product.description}</p>
-                    <Link
-                      href={`/produse/produs/${product.id}`}
-                      className="inline-flex items-center text-orange-500 hover:text-orange-600 font-semibold transition-colors"
-                    >
-                      Vezi detalii
-                      <svg
-                        className="w-5 h-5 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              ))}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <ContactForm />
             </div>
           </div>
         </div>

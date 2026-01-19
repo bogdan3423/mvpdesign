@@ -130,7 +130,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-lg shadow-md">
               <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                Trimite-ne un Mesaj
+                Pentru orice comenzi sau întrebări, completează formularul de mai jos:
               </h2>
               <ContactForm />
             </div>
