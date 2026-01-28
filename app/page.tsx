@@ -31,12 +31,12 @@ export default function Home() {
           <div className="max-w-3xl">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight text-white">
-              Tot ce ai nevoie pentru Birou și Creativitate!
+              Transformăm ideile tale în materiale vizuale de impact!
             </h1>
 
             {/* Description */}
             <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed" style={{ fontSize: 'larger' }}>
-              <b>Papetărie de calitate premium, rechizite pentru birou și materiale artistice profesionale. 
+              <b>Soluții de design grafic și servicii de print de calitate, realizate cu atenție la detalii.
               Comandă telefonic sau prin email.</b>
             </p>
 

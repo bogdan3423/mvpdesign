@@ -12,7 +12,7 @@ export default function AboutPage() {
               Despre MVP DESIGN
             </h1>
             <p className="text-xl text-orange-100">
-              Partenerul tău de încredere pentru papetărie și articole de birou de calitate de la început
+              MVP DESIGN este partenerul tău de încredere pentru design grafic și print de calitate, oferind soluții personalizate pentru orice nevoie, de la idei simple la proiecte complete.
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +8,10 @@ export default function ContactForm() {
     email: '',
     message: '',
   });
+
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [dragActive, setDragActive] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
@@ -21,6 +25,7 @@ export default function ContactForm() {
       setSubmitMessage('Thank you! We will contact you soon.');
       setIsSubmitting(false);
       setFormData({ name: '', email: '', message: '' });
+      setUploadedFile(null);
       
       // Clear message after 5 seconds
       setTimeout(() => setSubmitMessage(''), 5000);
@@ -32,6 +37,48 @@ export default function ContactForm() {
       ...formData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setUploadedFile(e.target.files[0]);
+    }
+  };
+
+  const handleDrag = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setDragActive(true);
+    } else if (e.type === 'dragleave') {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      const file = e.dataTransfer.files[0];
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'];
+      if (allowedTypes.includes(file.type)) {
+        setUploadedFile(file);
+      }
+    }
+  };
+
+  const removeFile = () => {
+    setUploadedFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
+  const formatFileSize = (bytes: number) => {
+    if (bytes < 1024) return bytes + ' B';
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
   };
 
   return (
@@ -82,6 +129,71 @@ export default function ContactForm() {
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all resize-none"
           placeholder="How can we help you?"
         />
+      </div>
+
+      {/* File Upload Section */}
+      <div>
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Încarcă Lucrarea (opțional)
+        </label>
+        <div
+          className={`relative border-2 border-dashed rounded-lg p-6 transition-all ${
+            dragActive
+              ? 'border-orange-500 bg-orange-50'
+              : uploadedFile
+              ? 'border-green-400 bg-green-50'
+              : 'border-gray-300 hover:border-orange-400'
+          }`}
+          onDragEnter={handleDrag}
+          onDragLeave={handleDrag}
+          onDragOver={handleDrag}
+          onDrop={handleDrop}
+        >
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileChange}
+            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+          />
+          
+          {uploadedFile ? (
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">{uploadedFile.name}</p>
+                  <p className="text-xs text-gray-500">{formatFileSize(uploadedFile.size)}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={removeFile}
+                className="p-1 text-gray-400 hover:text-red-500 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          ) : (
+            <div className="text-center">
+              <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+              </svg>
+              <p className="mt-2 text-sm text-gray-600">
+                <span className="font-medium text-orange-500">Click pentru a încărca</span> sau trage fișierul aici
+              </p>
+              <p className="mt-1 text-xs text-gray-500">
+                PDF, DOC, DOCX, JPG sau PNG (max. 10MB)
+              </p>
+            </div>
+          )}
+        </div>
       </div>
 
       <button
