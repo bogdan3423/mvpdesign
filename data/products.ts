@@ -378,7 +378,7 @@ export const products: Product[] = [
     category: "Papetărie & Office",
     subcategory: "Calendare",
     slug: "calendare",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/calendarmvpdesign.jpeg"],
   },
 
   // Canvas
