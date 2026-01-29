@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef } from 'react';
+import { storage } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ export default function ContactForm() {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [dragActive, setDragActive] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
@@ -20,16 +23,47 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setSubmitMessage('Thank you! We will contact you soon.');
-      setIsSubmitting(false);
-      setFormData({ name: '', email: '', message: '' });
-      setUploadedFile(null);
+    try {
+      let fileUrl = '';
       
-      // Clear message after 5 seconds
+      if (uploadedFile) {
+        const timestamp = Date.now();
+        const fileName = `uploads/${timestamp}_${uploadedFile.name}`;
+        const storageRef = ref(storage, fileName);
+        await uploadBytes(storageRef, uploadedFile);
+        fileUrl = await getDownloadURL(storageRef);
+      }
+
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('message', formData.message);
+      if (fileUrl) {
+        formDataToSend.append('file_url', fileUrl);
+      }
+      formDataToSend.append('_subject', 'New Contact Form Submission');
+      formDataToSend.append('_captcha', 'false');
+      formDataToSend.append('_template', 'table');
+
+      const response = await fetch('https://formsubmit.co/ajax/rusbogdan3423@gmail.com', {
+        method: 'POST',
+        body: formDataToSend,
+      });
+
+      if (response.ok) {
+        setSubmitMessage('Thank you! We will contact you soon.');
+        setFormData({ name: '', email: '', message: '' });
+        setUploadedFile(null);
+        if (fileInputRef.current) fileInputRef.current.value = '';
+      } else {
+        setSubmitMessage('Something went wrong. Please try again.');
+      }
+    } catch {
+      setSubmitMessage('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
       setTimeout(() => setSubmitMessage(''), 5000);
-    }, 1000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -61,9 +95,14 @@ export default function ContactForm() {
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
       const file = e.dataTransfer.files[0];
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'];
+      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
       if (allowedTypes.includes(file.type)) {
         setUploadedFile(file);
+        if (fileInputRef.current) {
+          const dataTransfer = new DataTransfer();
+          dataTransfer.items.add(file);
+          fileInputRef.current.files = dataTransfer.files;
+        }
       }
     }
   };
@@ -82,7 +121,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
           Name *
@@ -151,9 +190,10 @@ export default function ContactForm() {
         >
           <input
             type="file"
+            name="attachment"
             ref={fileInputRef}
             onChange={handleFileChange}
-            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+            accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           />
           
@@ -189,7 +229,7 @@ export default function ContactForm() {
                 <span className="font-medium text-orange-500">Click pentru a încărca</span> sau trage fișierul aici
               </p>
               <p className="mt-1 text-xs text-gray-500">
-                PDF, DOC, DOCX, JPG sau PNG (max. 10MB)
+                PDF, DOC, DOCX (max. 10MB)
               </p>
             </div>
           )}
