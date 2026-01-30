@@ -41,7 +41,7 @@ export default function ContactForm() {
       if (fileUrl) {
         formDataToSend.append('file_url', fileUrl);
       }
-      formDataToSend.append('_subject', 'New Contact Form Submission');
+      formDataToSend.append('_subject', 'Formular de Contact Nou');
       formDataToSend.append('_captcha', 'false');
       formDataToSend.append('_template', 'table');
 
@@ -51,15 +51,15 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
-        setSubmitMessage('Thank you! We will contact you soon.');
+        setSubmitMessage('Mulțumim! Vă vom contacta în curând.');
         setFormData({ name: '', email: '', message: '' });
         setUploadedFile(null);
         if (fileInputRef.current) fileInputRef.current.value = '';
       } else {
-        setSubmitMessage('Something went wrong. Please try again.');
+        setSubmitMessage('Ceva nu a funcționat. Vă rugăm să încercați din nou.');
       }
     } catch {
-      setSubmitMessage('Something went wrong. Please try again.');
+      setSubmitMessage('Ceva nu a funcționat. Vă rugăm să încercați din nou.');
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitMessage(''), 5000);
@@ -124,7 +124,7 @@ export default function ContactForm() {
     <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-          Name *
+          Nume *
         </label>
         <input
           type="text"
@@ -134,7 +134,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
-          placeholder="Your name"
+          placeholder="Numele dumneavoastră"
         />
       </div>
 
@@ -156,7 +156,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Message *
+          Mesaj *
         </label>
         <textarea
           id="message"
@@ -166,7 +166,7 @@ export default function ContactForm() {
           required
           rows={6}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all resize-none"
-          placeholder="How can we help you?"
+          placeholder="Cu ce vă putem ajuta?"
         />
       </div>
 
@@ -241,7 +241,7 @@ export default function ContactForm() {
         disabled={isSubmitting}
         className="w-full bg-orange-500 text-white px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {isSubmitting ? 'Sending...' : 'Send Message'}
+        {isSubmitting ? 'Se trimite...' : 'Trimite Mesajul'}
       </button>
 
       {submitMessage && (
