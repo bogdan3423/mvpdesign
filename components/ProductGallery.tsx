@@ -153,7 +153,7 @@ export default function ProductGallery({ products }: ProductGalleryProps) {
                     Comandă telefonic
                   </a>
                   <a
-                    href={`mailto:orders@mvpdesign.ro?subject=Solicitare%20oferta:%20${encodeURIComponent(selectedProduct.name)}&body=Bună%20ziua,%0D%0A%0D%0AAș%20dori%20o%20ofertă%20pentru:%0D%0AProdus:%20${encodeURIComponent(selectedProduct.name)}%0D%0ACategorie:%20${encodeURIComponent(selectedProduct.subcategory)}%0D%0AID%20produs:%20${selectedProduct.id}%0D%0A%0D%0AMențiuni:%0D%0A-%20Cantitate%20dorita:%0D%0A-%20Dimensiuni%20/Specificatii:%0D%0A%0D%0AVă%20mulțumesc!`}
+                    href={`mailto:printmvpdesign@gmail.com?subject=Solicitare%20oferta:%20${encodeURIComponent(selectedProduct.name)}&body=Bună%20ziua,%0D%0A%0D%0AAș%20dori%20o%20ofertă%20pentru:%0D%0AProdus:%20${encodeURIComponent(selectedProduct.name)}%0D%0ACategorie:%20${encodeURIComponent(selectedProduct.subcategory)}%0D%0AID%20produs:%20${selectedProduct.id}%0D%0A%0D%0AMențiuni:%0D%0A-%20Cantitate%20dorita:%0D%0A-%20Dimensiuni%20/Specificatii:%0D%0A%0D%0AVă%20mulțumesc!`}
                     className="flex items-center justify-center gap-2 rounded-xl border-2 border-orange-500 px-6 py-3 text-sm font-semibold text-orange-600 transition-colors hover:bg-orange-50"
                     onClick={(event) => event.stopPropagation()}
                   >

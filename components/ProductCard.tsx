@@ -37,7 +37,7 @@ export default function ProductCard({ product, onClick, priority = false }: Prod
   const handleEmailClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
-    window.location.href = `mailto:orders@mvpdesign.ro?subject=Comandă: ${encodeURIComponent(product.name)}&body=Aș dori să comand:%0D%0A%0D%0AProdus: ${encodeURIComponent(product.name)}%0D%0ACategorie: ${encodeURIComponent(product.subcategory)}%0D%0A%0D%0AVă rog să mă contactați pentru detalii despre cantitate și livrare.%0D%0A%0D%0AMulțumesc!`;
+    window.location.href = `mailto:printmvpdesign@gmail.com?subject=Comandă: ${encodeURIComponent(product.name)}&body=Aș dori să comand:%0D%0A%0D%0AProdus: ${encodeURIComponent(product.name)}%0D%0ACategorie: ${encodeURIComponent(product.subcategory)}%0D%0A%0D%0AVă rog să mă contactați pentru detalii despre cantitate și livrare.%0D%0A%0D%0AMulțumesc!`;
   };
 
   const content = (

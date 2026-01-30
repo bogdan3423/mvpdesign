@@ -146,7 +146,7 @@ export default function ProductsPage() {
               Sună Acum
             </a>
             <a
-              href="mailto:orders@mvpdesign.ro"
+              href="mailto:printmvpdesign@gmail.com"
               className="inline-flex items-center justify-center border-2 border-orange-500 text-orange-500 px-8 py-4 rounded-lg hover:bg-orange-50 transition-colors font-bold text-lg"
             >
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">

@@ -251,7 +251,7 @@ export default function Header() {
               <span className="font-medium">+40 756 181 046</span>
             </a>
             <a 
-              href="mailto:orders@mvpdesign.ro" 
+              href="mailto:printmvpdesign@gmail.com" 
               className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors font-medium"
             >
               Comandă Acum
@@ -356,7 +356,7 @@ export default function Header() {
                 <span className="font-medium">+40 756 181 046</span>
               </a>
               <a 
-                href="mailto:orders@mvpdesign.ro" 
+                href="mailto:printmvpdesign@gmail.com" 
                 className="block bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors font-medium text-center"
               >
                 Comandă Acum

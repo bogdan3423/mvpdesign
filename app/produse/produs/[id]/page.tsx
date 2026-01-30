@@ -195,7 +195,7 @@ export default async function ProductDetailsPage({ params }: ProductPageParams) 
                     Sună-ne
                   </a>
                   <a
-                    href={`mailto:orders@mvpdesign.ro?subject=Solicitare%20oferta:%20${encodeURIComponent(product.name)}&body=Bună%20ziua,%0D%0A%0D%0AAș%20dori%20o%20ofertă%20pentru:%0D%0AProdus:%20${encodeURIComponent(product.name)}%0D%0ACategorie:%20${encodeURIComponent(product.subcategory)}%0D%0AID%20produs:%20${product.id}%0D%0A%0D%0AMențiuni:%0D%0A-%20Cantitate%20dorita:%0D%0A-%20Dimensiuni%20/Specificatii:%0D%0A%0D%0AVă%20mulțumesc!`}
+                    href={`mailto:printmvpdesign@gmail.com?subject=Solicitare%20oferta:%20${encodeURIComponent(product.name)}&body=Bună%20ziua,%0D%0A%0D%0AAș%20dori%20o%20ofertă%20pentru:%0D%0AProdus:%20${encodeURIComponent(product.name)}%0D%0ACategorie:%20${encodeURIComponent(product.subcategory)}%0D%0AID%20produs:%20${product.id}%0D%0A%0D%0AMențiuni:%0D%0A-%20Cantitate%20dorita:%0D%0A-%20Dimensiuni%20/Specificatii:%0D%0A%0D%0AVă%20mulțumesc!`}
                     className="flex items-center justify-center gap-2 border-2 border-orange-500 text-orange-600 px-6 py-3 rounded-lg hover:bg-orange-50 transition-colors font-semibold"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

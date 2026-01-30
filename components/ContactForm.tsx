@@ -45,7 +45,7 @@ export default function ContactForm() {
       formDataToSend.append('_captcha', 'false');
       formDataToSend.append('_template', 'table');
 
-      const response = await fetch('https://formsubmit.co/ajax/rusbogdan3423@gmail.com', {
+      const response = await fetch('https://formsubmit.co/ajax/printmvpdesign@gmail.com', {
         method: 'POST',
         body: formDataToSend,
       });
