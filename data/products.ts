@@ -114,7 +114,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "A4 / SRA4",
     slug: "a4-sra4",
-    images: ["/Poze-produse/A4-SRA4.png"],
+    images: ["/Poze-produse/A4-SRA4.webp"],
   },
 
   // Printuri clasice / Xerox - A3 / SRA3
@@ -125,7 +125,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "A3 / SRA3",
     slug: "a3-sra3",
-    images: ["/Poze-produse/A3-SRA3.png"],
+    images: ["/Poze-produse/A3-SRA3 (1).webp"],
   },
 
   // Autocolante
@@ -136,7 +136,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Autocolante",
     slug: "autocolante",
-    images: ["/Poze-produse/sticker1.png","/Poze-produse/sticker-round.png","/Poze-produse/round-sticker.png","/Poze-produse/square-sticker.png"],
+    images: ["/Poze-produse/sticker1.webp","/Poze-produse/sticker-round.webp","/Poze-produse/round-sticker.webp","/Poze-produse/square-sticker.webp"],
   },
 
   // Afișe / Postere
@@ -147,7 +147,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Afișe / Postere",
     slug: "afise-postere",
-    images: ["/Poze-produse/Afis-2.png","/Poze-produse/Afis.png"],
+    images: ["/Poze-produse/Afis-2.webp","/Poze-produse/Afis.webp"],
   },
 
   // Broșuri / Cataloage / Reviste
@@ -158,7 +158,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Broșuri / Cataloage / Reviste",
     slug: "brosuri-cataloage-reviste",
-    images: ["/Poze-produse/brosura-cu-mai-multe-file-MVP-Design.png","/Poze-produse/brosurica-MVP-Design2.png","/Poze-produse/catalog-1-MVP-Design.png","/Poze-produse/catalog-2-MVP-Design.png"],
+    images: ["/Poze-produse/brosura-cu-mai-multe-file-MVP-Design.webp","/Poze-produse/brosurica-MVP-Design2.webp","/Poze-produse/catalog-1-MVP-Design.webp","/Poze-produse/catalog-2-MVP-Design.webp"],
   },
 
   // Cărți de vizită
@@ -169,7 +169,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Cărți de vizită",
     slug: "carti-de-vizita",
-    images: ["/Poze-produse/carte-de-vizita.png"],
+    images: ["/Poze-produse/carte-de-vizita.webp"],
   },
 
   // Diplome
@@ -180,7 +180,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Diplome",
     slug: "diplome",
-    images: ["/Poze-produse/diplomapoza.jpeg","/Poze-produse/diplomapoza2.jpeg"],
+    images: ["/Poze-produse/diplomamvp1.webp","/Poze-produse/diplomamvp2.webp"],
   },
 
   // Flyere / Pliante
@@ -191,7 +191,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Flyere / Pliante",
     slug: "flyere-pliante",
-    images: ["/Poze-produse/flayer-1.png","/Poze-produse/flayer-2.png","/Poze-produse/flayer-3.png","/Poze-produse/flayer-MVP-Design1.png"],
+    images: ["/Poze-produse/flayer-1.webp","/Poze-produse/flayer-2.webp","/Poze-produse/flayer-3.webp","/Poze-produse/flayer-MVP-Design1.webp"],
   },
 
   // Mape cu buzunar
@@ -202,7 +202,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Mape cu buzunar",
     slug: "mape-cu-buzunar",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Meniuri (restaurant / cafenea)
@@ -213,7 +213,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Meniuri (restaurant / cafenea)",
     slug: "meniuri-restaurant-cafenea",
-    images: ["/Poze-produse/Meniu-MVP-Design-1.png"],
+    images: ["/Poze-produse/Meniu-MVP-Design-1.webp"],
   },
 
   // Plicuri
@@ -235,7 +235,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Print & Cut colantare Auto",
     slug: "print-cut-colantare-auto",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Print & Cut etichete vinil
@@ -246,7 +246,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Print & Cut etichete vinil",
     slug: "print-cut-etichete-vinil",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Print & Cut folii geamuri / window decor
@@ -257,7 +257,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Print & Cut folii geamuri / window decor",
     slug: "print-cut-folii-geamuri-window-decor",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Print tapet
@@ -268,7 +268,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Print tapet",
     slug: "print-tapet",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Carte poștală / Cartoline
@@ -279,7 +279,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Carte poștală / Cartoline",
     slug: "carte-postala-cartoline",
-    images: ["/Poze-produse/cartolina.png"],
+    images: ["/Poze-produse/cartolina.webp"],
   },
 
   // Vouchere
@@ -290,7 +290,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Vouchere",
     slug: "vouchere",
-    images: ["/Poze-produse/voucher-1-MVP-Design.png","/Poze-produse/voucher-2-MVP-Design.png"],
+    images: ["/Poze-produse/voucher-1-MVP-Design.webp","/Poze-produse/voucher-2-MVP-Design.webp"],
   },
 
   // Printuri mari (A0+, A0, A1, A2)
@@ -301,7 +301,7 @@ export const products: Product[] = [
     category: "Printuri clasice / Xerox",
     subcategory: "Printuri mari (A0+, A0, A1, A2)",
     slug: "printuri-mari",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Lucrări de diplomă
@@ -312,7 +312,7 @@ export const products: Product[] = [
     category: "Lucrări academice & profesionale",
     subcategory: "Lucrări de diplomă",
     slug: "lucrari-de-diploma",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Lucrări de licență
@@ -323,7 +323,7 @@ export const products: Product[] = [
     category: "Lucrări academice & profesionale",
     subcategory: "Lucrări de licență",
     slug: "lucrari-de-licenta",
-    images: ["/Poze-produse/licenta.png"],
+    images: ["/Poze-produse/licenta.webp"],
   },
 
   // Planșe inginerie / arhitectură + Pliere
@@ -334,7 +334,7 @@ export const products: Product[] = [
     category: "Lucrări academice & profesionale",
     subcategory: "Planșe inginerie / arhitectură + Pliere",
     slug: "planse-inginerie-arhitectura",
-    images: ["/Poze-produse/Planse-1-MVP-Design.png","/Poze-produse/Planse-2-MVP-Design.png","/Poze-produse/Planse-3-MVP-Design.png"],
+    images: ["/Poze-produse/Planse-1-MVP-Design.webp","/Poze-produse/Planse-2-MVP-Design.webp","/Poze-produse/Planse-3-MVP-Design.webp"],
   },
 
   // Rețetare medicale / Formulare
@@ -345,7 +345,7 @@ export const products: Product[] = [
     category: "Lucrări academice & profesionale",
     subcategory: "Rețetare medicale / Formulare",
     slug: "retetare-medicale-formulare",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Agende / Notebooks
@@ -356,7 +356,7 @@ export const products: Product[] = [
     category: "Papetărie & Office",
     subcategory: "Agende / Notebooks",
     slug: "agende-notebooks",
-    images: ["/Poze-produse/agenda-a6.png","/Poze-produse/agenda-hard-cover.png"],
+    images: ["/Poze-produse/agenda-a6.webp","/Poze-produse/agenda-hard-cover.webp"],
   },
 
   // Plannere de perete
@@ -367,7 +367,7 @@ export const products: Product[] = [
     category: "Papetărie & Office",
     subcategory: "Plannere de perete",
     slug: "plannere-de-perete",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Calendare
@@ -378,7 +378,7 @@ export const products: Product[] = [
     category: "Papetărie & Office",
     subcategory: "Calendare",
     slug: "calendare",
-    images: ["/Poze-produse/calendarmvpdesign.jpeg"],
+    images: ["/Poze-produse/calendarmvpdesign.webp"],
   },
 
   // Canvas
@@ -389,7 +389,7 @@ export const products: Product[] = [
     category: "Papetărie & Office",
     subcategory: "Canvas",
     slug: "canvas",
-    images: ["/Poze-produse/canvas-2.png","/Poze-produse/canvas.png"],
+    images: ["/Poze-produse/canvas-2.webp","/Poze-produse/canvas.webp"],
   },
 
   // Ecusoane
@@ -400,7 +400,7 @@ export const products: Product[] = [
     category: "Papetărie & Office",
     subcategory: "Ecusoane",
     slug: "ecusoane",
-    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.jpeg"],
+    images: ["/Poze-produse/WhatsApp Image 2025-12-22 at 15.32.20.webp"],
   },
 
   // Produse personalizate
@@ -411,7 +411,7 @@ export const products: Product[] = [
     category: "Textile & Produse personalizate",
     subcategory: "Produse personalizate",
     slug: "produse-personalizate",
-    images: ["/Poze-produse/personalizate.jpeg","/Poze-produse/cana.png","/Poze-produse/cana-2.png","/Poze-produse/punga.png","/Poze-produse/pix-personalizat-MVP-Design.png"],
+    images: ["/Poze-produse/personalizate.webp","/Poze-produse/cana.webp","/Poze-produse/cana-2.webp","/Poze-produse/punga.webp","/Poze-produse/pix-personalizat-MVP-Design.webp"],
   },
 
   // Tricouri personalizate
@@ -422,7 +422,7 @@ export const products: Product[] = [
     category: "Textile & Produse personalizate",
     subcategory: "Tricouri personalizate",
     slug: "tricouri-personalizate",
-    images: ["/Poze-produse/tricou1.png","/Poze-produse/tricou-spate.png","/Poze-produse/tricou-fata.png","/Poze-produse/tricou-fata-2.png"],
+    images: ["/Poze-produse/tricou1.webp","/Poze-produse/tricou-spate.webp","/Poze-produse/tricou-fata.webp","/Poze-produse/tricou-fata-2.webp"],
   },
 
   // Hanorace personalizate
@@ -433,7 +433,7 @@ export const products: Product[] = [
     category: "Textile & Produse personalizate",
     subcategory: "Hanorace personalizate",
     slug: "hanorace-personalizate",
-    images: ["/Poze-produse/hanorac-spate.png"],
+    images: ["/Poze-produse/hanorac-spate.webp"],
   },
 
   // Tote bag / Geanta din panza
@@ -444,7 +444,7 @@ export const products: Product[] = [
     category: "Textile & Produse personalizate",
     subcategory: "Tote bag / Geanta din panza",
     slug: "tote-bag-geanta-panza",
-    images: ["/Poze-produse/punga.png"],
+    images: ["/Poze-produse/punga.webp"],
   },
 
   // Cana personalizata
@@ -455,7 +455,7 @@ export const products: Product[] = [
     category: "Textile & Produse personalizate",
     subcategory: "Cana personalizata",
     slug: "cana-personalizata",
-    images: ["/Poze-produse/cana.png","/Poze-produse/cana-2.png"],
+    images: ["/Poze-produse/cana.webp","/Poze-produse/cana-2.webp"],
   },
 
   // Invitații de nuntă/botez/evenimente
@@ -466,7 +466,7 @@ export const products: Product[] = [
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Invitații de nuntă/botez/evenimente",
     slug: "invitatii-nunta-botez-evenimente",
-    images: ["/Poze-produse/invitatie-de-nunta1-MVP-Design.png","/Poze-produse/invitatie-de-nunta2-MVP-Design.png"],
+    images: ["/Poze-produse/invitatie-de-nunta1-MVP-Design.webp","/Poze-produse/invitatie-de-nunta2-MVP-Design.webp"],
   },
 
   // Bilete evenimente
@@ -477,7 +477,7 @@ export const products: Product[] = [
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Bilete evenimente",
     slug: "bilete-evenimente",
-    images: ["/Poze-produse/bileteevenimente.jpeg"],
+    images: ["/Poze-produse/bileteevenimente.webp"],
   },
 
   // Felicitări
@@ -488,7 +488,7 @@ export const products: Product[] = [
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Felicitări",
     slug: "felicitari",
-    images: ["/Poze-produse/felicitare1.png","/Poze-produse/felicitar2.png","/Poze-produse/felicitar3.png"],
+    images: ["/Poze-produse/felicitare1.webp","/Poze-produse/felicitar2.webp","/Poze-produse/felicitar3.webp"],
   },
 
   // Albume foto
@@ -499,7 +499,7 @@ export const products: Product[] = [
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Albume foto",
     slug: "albume-foto",
-    images: ["/Poze-produse/album-15x15.png"],
+    images: ["/Poze-produse/album-15x15.webp"],
   },
 
   // Poze / Fotografii
@@ -510,7 +510,7 @@ export const products: Product[] = [
     category: "Evenimente & Cadouri personalizate",
     subcategory: "Poze / Fotografii",
     slug: "poze-fotografii",
-    images: ["/Poze-produse/poza-1.png"],
+    images: ["/Poze-produse/poza-1.webp"],
   },
 
   // Tablouri
@@ -554,7 +554,7 @@ export const products: Product[] = [
     category: "Publicitate & Expunere",
     subcategory: "Bannere / Mesh-uri",
     slug: "bannere-mesh-uri",
-      images: ["/Poze-produse/banner.png","/Poze-produse/bilboard.png"],
+      images: ["/Poze-produse/banner.webp","/Poze-produse/bilboard.webp"],
     },
 
   // Roll-up / Pop-up
@@ -565,7 +565,7 @@ export const products: Product[] = [
     category: "Publicitate & Expunere",
     subcategory: "Roll-up / Pop-up",
     slug: "roll-up-pop-up",
-    images: ["/Poze-produse/roll-up.png"],
+    images: ["/Poze-produse/roll-up.webp"],
   },
 
   // Steaguri
